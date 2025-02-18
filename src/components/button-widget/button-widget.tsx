@@ -1,16 +1,22 @@
-import { Component, getAssetPath, h, Host } from '@stencil/core';
+import { Build, Component, Env, getAssetPath, h, Host } from '@stencil/core';
 import { state } from '../../store/store';
 
 @Component({
   tag: 'button-widget',
   styleUrl: './button-widget.css',
   shadow: true,
-  // assetsDirs: ['assets']
 })
 export class ButtonWidget {
+  private handleClick = () => {
+    window.location.href = Env.PLATFORM_URL + 'donate?id=' + state.widgetDetails.uuid; // Change to your URL source
+  };
+
   render() {
 
-    const imageSrc= getAssetPath('assets/t-icon.svg');
+    // const imageSrc= getAssetPath('assets/t-icon.svg');
+    const imageSrc = Build.isDev
+      ? '/assets/t-icon.svg' // Dev mode: use this path
+      : getAssetPath('assets/t-icon.svg'); // Production build
 
     return (
       <Host>
@@ -22,6 +28,7 @@ export class ButtonWidget {
             borderColor: state.widgetDetails.borderColor,
             fontFamily: state.widgetDetails.font ?? 'inherit',
           }}
+          onClick={this.handleClick}
         >
           <span class="taktak-icon">
             <img src={imageSrc} class="t-icon-image" />

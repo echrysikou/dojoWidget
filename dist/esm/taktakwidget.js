@@ -1,5 +1,5 @@
-import { p as promiseResolve, b as bootstrapLazy } from './index-a4a22ddb.js';
-export { s as setNonce } from './index-a4a22ddb.js';
+import { p as promiseResolve, b as bootstrapLazy } from './index-e127872c.js';
+export { s as setNonce } from './index-e127872c.js';
 import { g as globalScripts } from './app-globals-0f993ce5.js';
 
 /*
