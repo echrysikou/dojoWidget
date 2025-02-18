@@ -1,5 +1,6 @@
 import { Config } from '@stencil/core';
 import * as dotenv from 'dotenv';
+import copy from 'rollup-plugin-copy';
 
 
 // Load environment variables from .env file
@@ -34,6 +35,18 @@ export const config: Config = {
       serviceWorker: null, // disable service workers
     },
   ],
+  rollupPlugins: {
+    after: [
+      copy({
+        targets: [
+          {
+            src: 'src/**/*.{jpg,png,ico,svg}',
+            dest: 'dist/components/assets',
+          },
+        ],
+      }),
+    ]
+  },
   testing: {
     browserHeadless: "new",
   },
