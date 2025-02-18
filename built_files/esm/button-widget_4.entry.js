@@ -227,7 +227,7 @@ const ButtonWidget = class {
                 color: state.widgetDetails.fontColor,
                 borderColor: state.widgetDetails.borderColor,
                 fontFamily: (_a = state.widgetDetails.font) !== null && _a !== void 0 ? _a : 'inherit',
-            } }, h("span", { key: '89190256d7d187e688266c470ee8fd5742bc749a', class: "taktak-icon" }, h("img", { key: '198ae6d6dedd31f3e10d3327669cbc89d035b740', src: "assets/t-icon.svg", class: "t-icon-image" })), h("span", { key: 'd78e0bdd664151bde57e8bcd0e3b20b4db6a2a45', class: "button-text" }, state.widgetDetails.label))));
+            } }, h("span", { key: '89190256d7d187e688266c470ee8fd5742bc749a', class: "taktak-icon" }, h("img", { key: 'e845874b54316eb45adc0bba28eb084fc5057a77', src: "/assets/t-icon.svg", class: "t-icon-image" })), h("span", { key: '871392e644229a004b05b331bb9d85d5f4f8da66', class: "button-text" }, state.widgetDetails.label))));
     }
 };
 ButtonWidget.style = ButtonWidgetStyle0;

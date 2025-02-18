@@ -20,7 +20,7 @@ export class ButtonWidget {
           }}
         >
           <span class="taktak-icon">
-            <img src="assets/t-icon.svg" class="t-icon-image" />
+            <img src="/assets/t-icon.svg" class="t-icon-image" />
           </span>
           <span class="button-text">{state.widgetDetails.label}</span>
         </button>
