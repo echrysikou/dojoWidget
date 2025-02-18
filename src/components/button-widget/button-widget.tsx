@@ -1,13 +1,16 @@
-import { Component, h, Host } from '@stencil/core';
+import { Component, getAssetPath, h, Host } from '@stencil/core';
 import { state } from '../../store/store';
 
 @Component({
   tag: 'button-widget',
   styleUrl: './button-widget.css',
   shadow: true,
+  assetsDirs: ['assets']
 })
 export class ButtonWidget {
   render() {
+    const imageSrc = getAssetPath('../assets/t-icon.svg');
+
     return (
       <Host>
         <button
@@ -20,7 +23,7 @@ export class ButtonWidget {
           }}
         >
           <span class="taktak-icon">
-            <img src="assets/t-icon.svg" class="t-icon-image" />
+            <img src={imageSrc} class="t-icon-image" />
           </span>
           <span class="button-text">{state.widgetDetails.label}</span>
         </button>

@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-6e8cf8e2.js');
+const index = require('./index-a89f0f7d.js');
 
 const appendToMap = (map, propName, value) => {
     const items = map.get(propName);
@@ -226,13 +226,15 @@ const ButtonWidget = class {
     }
     render() {
         var _a;
-        return (index.h(index.Host, { key: 'ca1c4d10b1830724a54374a9a3c9d1b1925c1c90' }, index.h("button", { key: 'f6a29fa0a3e010ce11b6632f0416a668d9745a4a', class: "donate-button", style: {
+        const imageSrc = index.getAssetPath('../assets/t-icon.svg');
+        return (index.h(index.Host, { key: '027358636da4d9a46893500479eacb34fd9d48bb' }, index.h("button", { key: 'f4796f76582e390a3f3cec5c07b7263417510ab5', class: "donate-button", style: {
                 backgroundColor: state.widgetDetails.themeColor,
                 color: state.widgetDetails.fontColor,
                 borderColor: state.widgetDetails.borderColor,
                 fontFamily: (_a = state.widgetDetails.font) !== null && _a !== void 0 ? _a : 'inherit',
-            } }, index.h("span", { key: '89190256d7d187e688266c470ee8fd5742bc749a', class: "taktak-icon" }, index.h("img", { key: '198ae6d6dedd31f3e10d3327669cbc89d035b740', src: "assets/t-icon.svg", class: "t-icon-image" })), index.h("span", { key: 'd78e0bdd664151bde57e8bcd0e3b20b4db6a2a45', class: "button-text" }, state.widgetDetails.label))));
+            } }, index.h("span", { key: '26be405b422d733ba5cb43d3669d41f8f950955a', class: "taktak-icon" }, index.h("img", { key: '90be87a3b3e68f184c1d642138cfbe9cb3bc2379', src: imageSrc, class: "t-icon-image" })), index.h("span", { key: '135b064615d1990454b578310d3e7766b86a039c', class: "button-text" }, state.widgetDetails.label))));
     }
+    static get assetsDirs() { return ["assets"]; }
 };
 ButtonWidget.style = ButtonWidgetStyle0;
 

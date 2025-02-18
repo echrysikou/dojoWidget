@@ -41,7 +41,7 @@ export const config: Config = {
         targets: [
           {
             src: 'src/**/*.{jpg,png,ico,svg}',
-            dest: 'dist/assets',
+            dest: 'dist/components/assets',
           },
         ],
       }),
