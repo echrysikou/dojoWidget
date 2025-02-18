@@ -5,11 +5,12 @@ import { state } from '../../store/store';
   tag: 'button-widget',
   styleUrl: './button-widget.css',
   shadow: true,
-  assetsDirs: ['assets']
+  // assetsDirs: ['assets']
 })
 export class ButtonWidget {
   render() {
-    const imageSrc = getAssetPath('../assets/t-icon.svg');
+
+    const imageSrc= getAssetPath('assets/t-icon.svg');
 
     return (
       <Host>
