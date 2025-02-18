@@ -226,15 +226,14 @@ const ButtonWidget = class {
     }
     render() {
         var _a;
-        const imageSrc = index.getAssetPath('../assets/t-icon.svg');
-        return (index.h(index.Host, { key: '027358636da4d9a46893500479eacb34fd9d48bb' }, index.h("button", { key: 'f4796f76582e390a3f3cec5c07b7263417510ab5', class: "donate-button", style: {
+        const imageSrc = index.getAssetPath('assets/t-icon.svg');
+        return (index.h(index.Host, { key: 'd2bdebf98dac24c317b31b1b1091eba29b44f649' }, index.h("button", { key: '34bbb4f83125fefb06976a41a841c0daf7ffc352', class: "donate-button", style: {
                 backgroundColor: state.widgetDetails.themeColor,
                 color: state.widgetDetails.fontColor,
                 borderColor: state.widgetDetails.borderColor,
                 fontFamily: (_a = state.widgetDetails.font) !== null && _a !== void 0 ? _a : 'inherit',
-            } }, index.h("span", { key: '26be405b422d733ba5cb43d3669d41f8f950955a', class: "taktak-icon" }, index.h("img", { key: '90be87a3b3e68f184c1d642138cfbe9cb3bc2379', src: imageSrc, class: "t-icon-image" })), index.h("span", { key: '135b064615d1990454b578310d3e7766b86a039c', class: "button-text" }, state.widgetDetails.label))));
+            } }, index.h("span", { key: '02821030834919942e2d5aacca1859dbf95daa54', class: "taktak-icon" }, index.h("img", { key: 'baaf3a1f1ddb005ed5993820dddc5f3df30f9cf1', src: imageSrc, class: "t-icon-image" })), index.h("span", { key: 'a59fcd9b68257df4a9e60bd5547a88f5977756ed', class: "button-text" }, state.widgetDetails.label))));
     }
-    static get assetsDirs() { return ["assets"]; }
 };
 ButtonWidget.style = ButtonWidgetStyle0;
 
