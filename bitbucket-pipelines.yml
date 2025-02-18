@@ -1,0 +1,28 @@
+definitions:
+  steps:
+    - step: &sonar-step
+        name: Sonar scan
+        script:
+          - pipe: sonarsource/sonarqube-scan:2.0.1
+            variables:
+              SONAR_HOST_URL: ${SONAR_HOST_URL}
+              SONAR_TOKEN: ${SONAR_TOKEN}
+              EXTRA_ARGS: -Dsonar.projectKey=atc-code_$BITBUCKET_REPO_SLUG -Dsonar.qualitygate.wait=true
+        after-script:
+          # Collect checkstyle results, if any, and convert to Bitbucket Code Insights.
+          - pipe: atlassian/checkstyle-report:0.4.0
+#        runs-on:
+#          - 'internal.atc.k8s'
+    - step: &security-step
+        name: Security Scan
+        script:
+          # Run a security scan for sensitive data.
+          - pipe: atlassian/git-secrets-scan:2.0.0
+#        runs-on:
+#          - 'internal.atc.k8s'
+pipelines:
+  branches:
+    '{development, feature/**, bugfix/**}':
+        - parallel:
+            - step: *sonar-step
+            - step: *security-step
