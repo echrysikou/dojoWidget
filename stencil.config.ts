@@ -34,7 +34,19 @@ export const config: Config = {
       type: 'www',
       serviceWorker: null, // disable service workers
     },
-  ], 
+  ],
+  // rollupPlugins: {
+  //   after: [
+  //     copy({
+  //       targets: [
+  //         {
+  //           src: 'src/**/*.{jpg,png,ico,svg}',
+  //           dest: 'dist/components/assets',
+  //         },
+  //       ],
+  //     }),
+  //   ]
+  // },
   testing: {
     browserHeadless: "new",
   },
