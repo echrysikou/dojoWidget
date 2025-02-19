@@ -1,4 +1,4 @@
-import { Build, Component, Env, getAssetPath, h, Host } from '@stencil/core';
+import { Component, Env, getAssetPath, h, Host } from '@stencil/core';
 import { state } from '../../store/store';
 
 @Component({
@@ -12,11 +12,7 @@ export class ButtonWidget {
   };
 
   render() {
-
-    // const imageSrc= getAssetPath('assets/t-icon.svg');
-    const imageSrc = Build.isDev
-      ? '/assets/t-icon.svg' // Dev mode: use this path
-      : getAssetPath('assets/t-icon.svg'); // Production build
+    const imageSrc = getAssetPath('assets/t-icon.svg');
 
     return (
       <Host>
