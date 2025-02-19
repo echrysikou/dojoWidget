@@ -1,6 +1,8 @@
 import { Component, Env, getAssetPath, h, Host } from '@stencil/core';
 import { state } from '../../store/store';
 
+console.log("Elena", getAssetPath(''))
+
 @Component({
   tag: 'button-widget',
   styleUrl: './button-widget.css',
@@ -15,7 +17,7 @@ export class ButtonWidget {
 
   render() {
 
-    const imageSrc= getAssetPath('../assets/t-icon.svg');
+    const imageSrc=getAssetPath('/assets/t-icon.svg');
     
 
     return (
