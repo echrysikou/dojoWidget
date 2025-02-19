@@ -12,7 +12,7 @@ export class ButtonWidget {
   };
 
   render() {
-    const imageSrc = getAssetPath('assets/t-icon.svg');
+    const imageSrc = getAssetPath('../assets/t-icon.svg');
 
     return (
       <Host>

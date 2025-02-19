@@ -8,13 +8,13 @@ export class ButtonWidget {
     }
     render() {
         var _a;
-        const imageSrc = getAssetPath('assets/t-icon.svg');
-        return (h(Host, { key: 'e9209e47e9f621dc7da4fe842993359cf23abb2e' }, h("button", { key: 'e64dab2962f6446bcb4232db9934b348bccdf641', class: "donate-button", style: {
+        const imageSrc = getAssetPath('../assets/t-icon.svg');
+        return (h(Host, { key: '7d28df275327a5348a1c8c669a73c6b4901a886b' }, h("button", { key: '91213e1024a7cdb35b0dc1cb7870b7f1535d15d2', class: "donate-button", style: {
                 backgroundColor: state.widgetDetails.themeColor,
                 color: state.widgetDetails.fontColor,
                 borderColor: state.widgetDetails.borderColor,
                 fontFamily: (_a = state.widgetDetails.font) !== null && _a !== void 0 ? _a : 'inherit',
-            }, onClick: this.handleClick }, h("span", { key: '5faf4212d1a4e79f7050d7142d80c1addcd7f8da', class: "taktak-icon" }, h("img", { key: '7937806c57660bf6a53e96cff80aaf4dfad5e3e3', src: imageSrc, class: "t-icon-image" })), h("span", { key: 'b679ffc1e393368b8b1431b7af92387be441e6af', class: "button-text" }, state.widgetDetails.label))));
+            }, onClick: this.handleClick }, h("span", { key: 'dca33cd82211fc2a626b7fccef5d15b8807b8a46', class: "taktak-icon" }, h("img", { key: '28c1582bcfa1f19c14cb6635ea3147e548d8524e', src: imageSrc, class: "t-icon-image" })), h("span", { key: '7694b02977fde860037181e5fdfc236ab26de2b7', class: "button-text" }, state.widgetDetails.label))));
     }
     static get is() { return "button-widget"; }
     static get encapsulation() { return "shadow"; }
