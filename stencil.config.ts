@@ -10,7 +10,6 @@ export const config: Config = {
   devServer: {
     port: 3000, // Change from 3333 to 3000
   },
-  srcDir: 'src',
   namespace: 'taktakwidget',
   globalStyle: 'src/global/global.css',
   env: {
@@ -27,13 +26,6 @@ export const config: Config = {
       type: 'dist-custom-elements',
       customElementsExportBehavior: 'auto-define-custom-elements',
       externalRuntime: false,
-      copy: [
-        {
-          src: '**/*.{jpg,png,ico,svg}',
-          dest: 'dist/components/assets',
-          warn: true,
-        }
-      ]
     },
     {
       type: 'docs-readme',
@@ -43,18 +35,18 @@ export const config: Config = {
       serviceWorker: null, // disable service workers
     },
   ],
-  // rollupPlugins: {
-  //   after: [
-  //     copy({
-  //       targets: [
-  //         {
-  //           src: 'src/**/*.{jpg,png,ico,svg}',
-  //           dest: 'dist/components/assets',
-  //         },
-  //       ],
-  //     }),
-  //   ]
-  // },
+  rollupPlugins: {
+    after: [
+      copy({
+        targets: [
+          {
+            src: 'src/**/*.{jpg,png,ico,svg}',
+            dest: 'dist/assets',
+          },
+        ],
+      }),
+    ]
+  },
   testing: {
     browserHeadless: "new",
   },
