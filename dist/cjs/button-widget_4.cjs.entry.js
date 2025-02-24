@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-acf8f2f0.js');
+const index = require('./index-110032ec.js');
 
 const appendToMap = (map, propName, value) => {
     const items = map.get(propName);
@@ -220,23 +220,23 @@ onChange('widgetDetails', value => {
 const buttonWidgetCss = ".donate-button{display:flex;justify-content:flex-start;align-items:center;border-width:3px;border-style:solid;font-size:16px;line-height:16px;height:44px;pointer-events:auto;font-weight:700;padding-top:1px;padding-left:16px;padding-right:16px;width:fit-content;border-radius:50px;transition:all 0.3s ease-out;letter-spacing:0.2px;text-align:center;text-shadow:none !important;white-space:nowrap;cursor:pointer}.taktak-icon{display:flex;align-items:center;justify-content:center;border-radius:50px;width:38px;height:38px;margin-left:-20px;margin-top:0px;border-width:3px;border-style:solid;border-color:var(--primary) !important;background:var(--light);color:var(--primary)}.t-icon-image{border-radius:50px;width:38px;height:38px}.button-text{font-size:16px;padding-left:8px}";
 const ButtonWidgetStyle0 = buttonWidgetCss;
 
-console.log("Elena", index.getAssetPath(''));
 const ButtonWidget = class {
     constructor(hostRef) {
         index.registerInstance(this, hostRef);
         this.handleClick = () => {
-            window.location.href = index.Env.PLATFORM_URL + 'donate?id=' + state.widgetDetails.uuid; // Change to your URL source
+            const url = index.Env.PLATFORM_URL + '/donate?id=' + state.widgetDetails.uuid;
+            window.open(url, '_blank', 'noopener,noreferrer');
         };
     }
     render() {
         var _a;
-        const imageSrc = index.getAssetPath('/assets/t-icon.svg');
-        return (index.h(index.Host, { key: 'cf6cfd3ead7b3f050aa397ea7b5f0ef4cf662143' }, index.h("button", { key: '5ee9e063792e910eb9932fb0b2a47fbf66d4d211', class: "donate-button", style: {
+        const imageSrc = index.Env.CDN_PATH + '/assets/t-icon.svg';
+        return (index.h(index.Host, { key: 'b278b9ac505b3d344c008ad8e5398f76ce7fbdd9' }, index.h("button", { key: '7f86df746660949b8ab84df416c542f3bd915a5b', class: "donate-button", style: {
                 backgroundColor: state.widgetDetails.themeColor,
                 color: state.widgetDetails.fontColor,
                 borderColor: state.widgetDetails.borderColor,
                 fontFamily: (_a = state.widgetDetails.font) !== null && _a !== void 0 ? _a : 'inherit',
-            }, onClick: this.handleClick }, index.h("span", { key: '6be34ab298d60b6c1bf925215aca4a29042a5794', class: "taktak-icon" }, index.h("img", { key: '7216f8764db546ba4c02478b63a4ae02b9bf60ed', src: imageSrc, class: "t-icon-image" })), index.h("span", { key: 'aa60d183a9efb92998e89577c7b3320d260fa162', class: "button-text" }, state.widgetDetails.label))));
+            }, onClick: this.handleClick }, index.h("span", { key: '4190b6c9e7e0b3c272e35f7542379a635b62b57c', class: "taktak-icon" }, index.h("img", { key: '6d92afb9aa6adcf5ea2c96b9eaf1b8fa118d1e83', src: imageSrc, class: "t-icon-image" })), index.h("span", { key: '50a03ca70eaa47baa6fd20f641cce14a3cdf0ccd', class: "button-text" }, state.widgetDetails.label))));
     }
     static get assetsDirs() { return ["assets"]; }
 };

@@ -1,6 +1,4 @@
-const NAMESPACE = 'taktakwidget';
-const BUILD = /* taktakwidget */ { allRenderFn: true, appendChildSlotFix: false, asyncLoading: true, asyncQueue: false, attachStyles: true, cloneNodeFix: false, cmpDidLoad: false, cmpDidRender: false, cmpDidUnload: false, cmpDidUpdate: false, cmpShouldUpdate: false, cmpWillLoad: true, cmpWillRender: false, cmpWillUpdate: false, connectedCallback: false, constructableCSS: true, cssAnnotations: true, devTools: false, disconnectedCallback: false, element: false, event: false, experimentalScopedSlotChanges: false, experimentalSlotFixes: false, formAssociated: false, hasRenderFn: true, hostListener: false, hostListenerTarget: false, hostListenerTargetBody: false, hostListenerTargetDocument: false, hostListenerTargetParent: false, hostListenerTargetWindow: false, hotModuleReplacement: false, hydrateClientSide: false, hydrateServerSide: false, hydratedAttribute: false, hydratedClass: true, hydratedSelectorName: "hydrated", invisiblePrehydration: true, isDebug: false, isDev: false, isTesting: false, lazyLoad: false, lifecycle: true, lifecycleDOMEvents: false, member: true, method: false, mode: false, observeAttribute: true, profile: false, prop: true, propBoolean: false, propMutable: true, propNumber: false, propString: true, reflect: true, scoped: false, scopedSlotTextContentFix: false, scriptDataOpts: false, shadowDelegatesFocus: false, shadowDom: true, slot: false, slotChildNodesFix: false, slotRelocation: false, state: true, style: true, svg: false, taskQueue: true, updatable: true, vdomAttribute: true, vdomClass: true, vdomFunctional: false, vdomKey: true, vdomListener: true, vdomPropOrAttr: true, vdomRef: false, vdomRender: true, vdomStyle: true, vdomText: true, vdomXlink: false, watchCallback: true };
-const Env = /* taktakwidget */ {"API_URL":"https://services.taktak.atc.gr/api/v1","PLATFORM_URL":"https://platform.dev.taktak.atc.gr/","STRIPE_PUBLISHABLE_KEY":"pk_test_51PbI26HsEMJqyycKszbjCmMmcxLbTZrgFsIp2PIemUfWWaPfcM17teJZzE20XXVxZgPnaI1jdBW328YohTheq3Tt00wcDnEbpn"};
+import { B as BUILD, N as NAMESPACE, p as proxyCustomElement, H, h as h$1, c as Host$1, E as Env } from './p-fcc1755e.js';
 
 /*
  Stencil Client Platform v4.21.0 | MIT Licensed | https://stenciljs.com
@@ -12,20 +10,6 @@ var __export = (target, all) => {
 };
 var hostRefs = /* @__PURE__ */ new WeakMap();
 var getHostRef = (ref) => hostRefs.get(ref);
-var registerHost = (hostElement, cmpMeta) => {
-  const hostRef = {
-    $flags$: 0,
-    $hostElement$: hostElement,
-    $cmpMeta$: cmpMeta,
-    $instanceValues$: /* @__PURE__ */ new Map()
-  };
-  {
-    hostRef.$onReadyPromise$ = new Promise((r) => hostRef.$onReadyResolve$ = r);
-    hostElement["s-p"] = [];
-    hostElement["s-rc"] = [];
-  }
-  return hostRefs.set(hostElement, hostRef);
-};
 var isMemberInElement = (elm, memberName) => memberName in elm;
 var consoleError = (e, el) => (0, console.error)(e, el);
 
@@ -34,8 +18,6 @@ var styles = /* @__PURE__ */ new Map();
 var SLOT_FB_CSS = "slot-fb{display:contents}slot-fb[hidden]{display:none}";
 var win = typeof window !== "undefined" ? window : {};
 var doc = win.document || { head: {} };
-var H = win.HTMLElement || class {
-};
 var plt = {
   $flags$: 0,
   $resourcesUrl$: "",
@@ -46,14 +28,6 @@ var plt = {
   ce: (eventName, opts) => new CustomEvent(eventName, opts)
 };
 var promiseResolve = (v) => Promise.resolve(v);
-var supportsConstructableStylesheets = /* @__PURE__ */ (() => {
-  try {
-    new CSSStyleSheet();
-    return typeof new CSSStyleSheet().replaceSync === "function";
-  } catch (e) {
-  }
-  return false;
-})() ;
 var queuePending = false;
 var queueDomReads = [];
 var queueDomWrites = [];
@@ -90,13 +64,6 @@ var flush = () => {
 var nextTick = (cb) => promiseResolve().then(cb);
 var writeTask = /* @__PURE__ */ queueTask(queueDomWrites, true);
 
-// src/runtime/asset-path.ts
-var getAssetPath = (path) => {
-  const assetUrl = new URL(path, plt.$resourcesUrl$);
-  return assetUrl.origin !== win.location.origin ? assetUrl.href : assetUrl.pathname;
-};
-var setAssetPath = (path) => plt.$resourcesUrl$ = path;
-
 // src/utils/constants.ts
 var EMPTY_OBJ = {};
 
@@ -119,7 +86,7 @@ __export(result_exports, {
   err: () => err,
   map: () => map,
   ok: () => ok,
-  unwrap: () => unwrap,
+  unwrap: () => unwrap$1,
   unwrapErr: () => unwrapErr
 });
 var ok = (value) => ({
@@ -147,7 +114,7 @@ function map(result, fn) {
   }
   throw "should never get here";
 }
-var unwrap = (result) => {
+var unwrap$1 = (result) => {
   if (result.isOk) {
     return result.value;
   } else {
@@ -232,35 +199,12 @@ var newVNode = (tag, text) => {
 };
 var Host = {};
 var isHost = (node) => node && node.$tag$ === Host;
-var parsePropertyValue = (propValue, propType) => {
-  if (propValue != null && !isComplexType(propValue)) {
-    if (propType & 1 /* String */) {
-      return String(propValue);
-    }
-    return propValue;
-  }
-  return propValue;
-};
 var emitEvent = (elm, name, opts) => {
   const ev = plt.ce(name, opts);
   elm.dispatchEvent(ev);
   return ev;
 };
 var rootAppliedStyles = /* @__PURE__ */ new WeakMap();
-var registerStyle = (scopeId2, cssText, allowCS) => {
-  let style = styles.get(scopeId2);
-  if (supportsConstructableStylesheets && allowCS) {
-    style = style || new CSSStyleSheet();
-    if (typeof style === "string") {
-      style = cssText;
-    } else {
-      style.replaceSync(cssText);
-    }
-  } else {
-    style = cssText;
-  }
-  styles.set(scopeId2, style);
-};
 var addStyle = (styleContainerNode, cmpMeta, mode) => {
   var _a;
   const scopeId2 = getScopeId(cmpMeta);
@@ -730,8 +674,10 @@ var updateComponent = async (hostRef, instance, isInitialLoad) => {
     }
   }
 };
+var renderingRef = null;
 var callRender = (hostRef, instance, elm, isInitialLoad) => {
   try {
+    renderingRef = instance;
     instance = instance.render() ;
     {
       hostRef.$flags$ &= ~16 /* isQueuedForUpdate */;
@@ -749,8 +695,10 @@ var callRender = (hostRef, instance, elm, isInitialLoad) => {
   } catch (e) {
     consoleError(e, hostRef.$hostElement$);
   }
+  renderingRef = null;
   return null;
 };
+var getRenderingRef = () => renderingRef;
 var postUpdateComponent = (hostRef) => {
   const tagName = hostRef.$cmpMeta$.$tagName$;
   const elm = hostRef.$hostElement$;
@@ -782,6 +730,16 @@ var postUpdateComponent = (hostRef) => {
     hostRef.$flags$ &= ~(4 /* isWaitingForChildren */ | 512 /* needsRerender */);
   }
 };
+var forceUpdate = (ref) => {
+  {
+    const hostRef = getHostRef(ref);
+    const isConnected = hostRef.$hostElement$.isConnected;
+    if (isConnected && (hostRef.$flags$ & (2 /* hasRendered */ | 16 /* isQueuedForUpdate */)) === 2 /* hasRendered */) {
+      scheduleUpdate(hostRef, false);
+    }
+    return isConnected;
+  }
+};
 var appDidLoad = (who) => {
   {
     addHydratedFlag(doc.documentElement);
@@ -803,238 +761,260 @@ var addHydratedFlag = (elm) => {
   return elm.classList.add((_a = BUILD.hydratedSelectorName) != null ? _a : "hydrated") ;
 };
 
-// src/runtime/set-value.ts
-var getValue = (ref, propName) => getHostRef(ref).$instanceValues$.get(propName);
-var setValue = (ref, propName, newVal, cmpMeta) => {
-  const hostRef = getHostRef(ref);
-  const elm = ref;
-  const oldVal = hostRef.$instanceValues$.get(propName);
-  const flags = hostRef.$flags$;
-  const instance = elm;
-  newVal = parsePropertyValue(newVal, cmpMeta.$members$[propName][0]);
-  const areBothNaN = Number.isNaN(oldVal) && Number.isNaN(newVal);
-  const didValueChange = newVal !== oldVal && !areBothNaN;
-  if (didValueChange) {
-    hostRef.$instanceValues$.set(propName, newVal);
-    {
-      if (cmpMeta.$watchers$ && flags & 128 /* isWatchReady */) {
-        const watchMethods = cmpMeta.$watchers$[propName];
-        if (watchMethods) {
-          watchMethods.map((watchMethodName) => {
-            try {
-              instance[watchMethodName](newVal, oldVal, propName);
-            } catch (e) {
-              consoleError(e, elm);
-            }
-          });
+const appendToMap = (map, propName, value) => {
+    const items = map.get(propName);
+    if (!items) {
+        map.set(propName, [value]);
+    }
+    else if (!items.includes(value)) {
+        items.push(value);
+    }
+};
+const debounce = (fn, ms) => {
+    let timeoutId;
+    return (...args) => {
+        if (timeoutId) {
+            clearTimeout(timeoutId);
         }
-      }
-      if ((flags & (2 /* hasRendered */ | 16 /* isQueuedForUpdate */)) === 2 /* hasRendered */) {
-        scheduleUpdate(hostRef, false);
-      }
-    }
-  }
+        timeoutId = setTimeout(() => {
+            timeoutId = 0;
+            fn(...args);
+        }, ms);
+    };
 };
 
-// src/runtime/proxy-component.ts
-var proxyComponent = (Cstr, cmpMeta, flags) => {
-  var _a, _b;
-  const prototype = Cstr.prototype;
-  if (cmpMeta.$members$ || (cmpMeta.$watchers$ || Cstr.watchers)) {
-    if (Cstr.watchers && !cmpMeta.$watchers$) {
-      cmpMeta.$watchers$ = Cstr.watchers;
+/**
+ * Check if a possible element isConnected.
+ * The property might not be there, so we check for it.
+ *
+ * We want it to return true if isConnected is not a property,
+ * otherwise we would remove these elements and would not update.
+ *
+ * Better leak in Edge than to be useless.
+ */
+const isConnected = (maybeElement) => !('isConnected' in maybeElement) || maybeElement.isConnected;
+const cleanupElements = debounce((map) => {
+    for (let key of map.keys()) {
+        map.set(key, map.get(key).filter(isConnected));
     }
-    const members = Object.entries((_a = cmpMeta.$members$) != null ? _a : {});
-    members.map(([memberName, [memberFlags]]) => {
-      if ((memberFlags & 31 /* Prop */ || memberFlags & 32 /* State */)) {
-        Object.defineProperty(prototype, memberName, {
-          get() {
-            return getValue(this, memberName);
-          },
-          set(newValue) {
-            setValue(this, memberName, newValue, cmpMeta);
-          },
-          configurable: true,
-          enumerable: true
-        });
-      }
-    });
-    {
-      const attrNameToPropName = /* @__PURE__ */ new Map();
-      prototype.attributeChangedCallback = function(attrName, oldValue, newValue) {
-        plt.jmp(() => {
-          var _a2;
-          const propName = attrNameToPropName.get(attrName);
-          if (this.hasOwnProperty(propName)) {
-            newValue = this[propName];
-            delete this[propName];
-          } else if (prototype.hasOwnProperty(propName) && typeof this[propName] === "number" && // cast type to number to avoid TS compiler issues
-          this[propName] == newValue) {
-            return;
-          } else if (propName == null) {
-            const hostRef = getHostRef(this);
-            const flags2 = hostRef == null ? void 0 : hostRef.$flags$;
-            if (flags2 && !(flags2 & 8 /* isConstructingInstance */) && flags2 & 128 /* isWatchReady */ && newValue !== oldValue) {
-              const elm = this;
-              const instance = elm;
-              const entry = (_a2 = cmpMeta.$watchers$) == null ? void 0 : _a2[attrName];
-              entry == null ? void 0 : entry.forEach((callbackName) => {
-                if (instance[callbackName] != null) {
-                  instance[callbackName].call(instance, newValue, oldValue, attrName);
-                }
-              });
+}, 2000);
+const stencilSubscription = () => {
+    if (typeof getRenderingRef !== 'function') {
+        // If we are not in a stencil project, we do nothing.
+        // This function is not really exported by @stencil/core.
+        return {};
+    }
+    const elmsToUpdate = new Map();
+    return {
+        dispose: () => elmsToUpdate.clear(),
+        get: (propName) => {
+            const elm = getRenderingRef();
+            if (elm) {
+                appendToMap(elmsToUpdate, propName, elm);
             }
-            return;
-          }
-          this[propName] = newValue === null && typeof this[propName] === "boolean" ? false : newValue;
-        });
-      };
-      Cstr.observedAttributes = Array.from(
-        /* @__PURE__ */ new Set([
-          ...Object.keys((_b = cmpMeta.$watchers$) != null ? _b : {}),
-          ...members.filter(([_, m]) => m[0] & 15 /* HasAttribute */).map(([propName, m]) => {
-            var _a2;
-            const attrName = m[1] || propName;
-            attrNameToPropName.set(attrName, propName);
-            if (m[0] & 512 /* ReflectAttr */) {
-              (_a2 = cmpMeta.$attrsToReflect$) == null ? void 0 : _a2.push([propName, attrName]);
+        },
+        set: (propName) => {
+            const elements = elmsToUpdate.get(propName);
+            if (elements) {
+                elmsToUpdate.set(propName, elements.filter(forceUpdate));
             }
-            return attrName;
-          })
-        ])
-      );
-    }
-  }
-  return Cstr;
+            cleanupElements(elmsToUpdate);
+        },
+        reset: () => {
+            elmsToUpdate.forEach((elms) => elms.forEach(forceUpdate));
+            cleanupElements(elmsToUpdate);
+        },
+    };
 };
 
-// src/runtime/initialize-component.ts
-var initializeComponent = async (elm, hostRef, cmpMeta, hmrVersionId) => {
-  let Cstr;
-  if ((hostRef.$flags$ & 32 /* hasInitializedComponent */) === 0) {
-    hostRef.$flags$ |= 32 /* hasInitializedComponent */;
-    {
-      Cstr = elm.constructor;
-      const cmpTag = elm.localName;
-      customElements.whenDefined(cmpTag).then(() => hostRef.$flags$ |= 128 /* isWatchReady */);
-    }
-    if (Cstr && Cstr.style) {
-      let style;
-      if (typeof Cstr.style === "string") {
-        style = Cstr.style;
-      }
-      const scopeId2 = getScopeId(cmpMeta);
-      if (!styles.has(scopeId2)) {
-        const endRegisterStyles = createTime("registerStyles", cmpMeta.$tagName$);
-        registerStyle(scopeId2, style, !!(cmpMeta.$flags$ & 1 /* shadowDomEncapsulation */));
-        endRegisterStyles();
-      }
-    }
-  }
-  const ancestorComponent = hostRef.$ancestorComponent$;
-  const schedule = () => scheduleUpdate(hostRef, true);
-  if (ancestorComponent && ancestorComponent["s-rc"]) {
-    ancestorComponent["s-rc"].push(schedule);
-  } else {
-    schedule();
-  }
+const unwrap = (val) => (typeof val === 'function' ? val() : val);
+const createObservableMap = (defaultState, shouldUpdate = (a, b) => a !== b) => {
+    const unwrappedState = unwrap(defaultState);
+    let states = new Map(Object.entries(unwrappedState !== null && unwrappedState !== void 0 ? unwrappedState : {}));
+    const handlers = {
+        dispose: [],
+        get: [],
+        set: [],
+        reset: [],
+    };
+    const reset = () => {
+        var _a;
+        // When resetting the state, the default state may be a function - unwrap it to invoke it.
+        // otherwise, the state won't be properly reset
+        states = new Map(Object.entries((_a = unwrap(defaultState)) !== null && _a !== void 0 ? _a : {}));
+        handlers.reset.forEach((cb) => cb());
+    };
+    const dispose = () => {
+        // Call first dispose as resetting the state would
+        // cause less updates ;)
+        handlers.dispose.forEach((cb) => cb());
+        reset();
+    };
+    const get = (propName) => {
+        handlers.get.forEach((cb) => cb(propName));
+        return states.get(propName);
+    };
+    const set = (propName, value) => {
+        const oldValue = states.get(propName);
+        if (shouldUpdate(value, oldValue, propName)) {
+            states.set(propName, value);
+            handlers.set.forEach((cb) => cb(propName, value, oldValue));
+        }
+    };
+    const state = (typeof Proxy === 'undefined'
+        ? {}
+        : new Proxy(unwrappedState, {
+            get(_, propName) {
+                return get(propName);
+            },
+            ownKeys(_) {
+                return Array.from(states.keys());
+            },
+            getOwnPropertyDescriptor() {
+                return {
+                    enumerable: true,
+                    configurable: true,
+                };
+            },
+            has(_, propName) {
+                return states.has(propName);
+            },
+            set(_, propName, value) {
+                set(propName, value);
+                return true;
+            },
+        }));
+    const on = (eventName, callback) => {
+        handlers[eventName].push(callback);
+        return () => {
+            removeFromArray(handlers[eventName], callback);
+        };
+    };
+    const onChange = (propName, cb) => {
+        const unSet = on('set', (key, newValue) => {
+            if (key === propName) {
+                cb(newValue);
+            }
+        });
+        // We need to unwrap the defaultState because it might be a function.
+        // Otherwise we might not be sending the right reset value.
+        const unReset = on('reset', () => cb(unwrap(defaultState)[propName]));
+        return () => {
+            unSet();
+            unReset();
+        };
+    };
+    const use = (...subscriptions) => {
+        const unsubs = subscriptions.reduce((unsubs, subscription) => {
+            if (subscription.set) {
+                unsubs.push(on('set', subscription.set));
+            }
+            if (subscription.get) {
+                unsubs.push(on('get', subscription.get));
+            }
+            if (subscription.reset) {
+                unsubs.push(on('reset', subscription.reset));
+            }
+            if (subscription.dispose) {
+                unsubs.push(on('dispose', subscription.dispose));
+            }
+            return unsubs;
+        }, []);
+        return () => unsubs.forEach((unsub) => unsub());
+    };
+    const forceUpdate = (key) => {
+        const oldValue = states.get(key);
+        handlers.set.forEach((cb) => cb(key, oldValue, oldValue));
+    };
+    return {
+        state,
+        get,
+        set,
+        on,
+        onChange,
+        use,
+        dispose,
+        reset,
+        forceUpdate,
+    };
 };
-var fireConnectedCallback = (instance) => {
+const removeFromArray = (array, item) => {
+    const index = array.indexOf(item);
+    if (index >= 0) {
+        array[index] = array[array.length - 1];
+        array.length--;
+    }
 };
 
-// src/runtime/connected-callback.ts
-var connectedCallback = (elm) => {
-  if ((plt.$flags$ & 1 /* isTmpDisconnected */) === 0) {
-    const hostRef = getHostRef(elm);
-    const cmpMeta = hostRef.$cmpMeta$;
-    const endConnected = createTime("connectedCallback", cmpMeta.$tagName$);
-    if (!(hostRef.$flags$ & 1 /* hasConnected */)) {
-      hostRef.$flags$ |= 1 /* hasConnected */;
-      {
-        let ancestorComponent = elm;
-        while (ancestorComponent = ancestorComponent.parentNode || ancestorComponent.host) {
-          if (ancestorComponent["s-p"]) {
-            attachToAncestor(hostRef, hostRef.$ancestorComponent$ = ancestorComponent);
+const createStore = (defaultState, shouldUpdate) => {
+    const map = createObservableMap(defaultState, shouldUpdate);
+    map.use(stencilSubscription());
+    return map;
+};
+
+const { state, onChange } = createStore({
+    language: 'en',
+    widgetDetails: {
+        uuid: '',
+        name: '',
+        title: '',
+        code: '',
+        codeLink: '',
+        font: '',
+        fontColor: '',
+        themeColor: '',
+        label: '',
+        borderColor: '',
+        createdAt: '',
+        type: 'BT',
+        collaborators: [],
+    },
+});
+onChange('widgetDetails', value => {
+    console.log('elena User changed to', value, state.widgetDetails);
+});
+
+const buttonWidgetCss = ".donate-button{display:flex;justify-content:flex-start;align-items:center;border-width:3px;border-style:solid;font-size:16px;line-height:16px;height:44px;pointer-events:auto;font-weight:700;padding-top:1px;padding-left:16px;padding-right:16px;width:fit-content;border-radius:50px;transition:all 0.3s ease-out;letter-spacing:0.2px;text-align:center;text-shadow:none !important;white-space:nowrap;cursor:pointer}.taktak-icon{display:flex;align-items:center;justify-content:center;border-radius:50px;width:38px;height:38px;margin-left:-20px;margin-top:0px;border-width:3px;border-style:solid;border-color:var(--primary) !important;background:var(--light);color:var(--primary)}.t-icon-image{border-radius:50px;width:38px;height:38px}.button-text{font-size:16px;padding-left:8px}";
+const ButtonWidgetStyle0 = buttonWidgetCss;
+
+const ButtonWidget = /*@__PURE__*/ proxyCustomElement(class ButtonWidget extends H {
+    constructor() {
+        super();
+        this.__registerHost();
+        this.__attachShadow();
+        this.handleClick = () => {
+            const url = Env.PLATFORM_URL + '/donate?id=' + state.widgetDetails.uuid;
+            window.open(url, '_blank', 'noopener,noreferrer');
+        };
+    }
+    render() {
+        var _a;
+        const imageSrc = Env.CDN_PATH + '/assets/t-icon.svg';
+        return (h$1(Host$1, { key: 'b278b9ac505b3d344c008ad8e5398f76ce7fbdd9' }, h$1("button", { key: '7f86df746660949b8ab84df416c542f3bd915a5b', class: "donate-button", style: {
+                backgroundColor: state.widgetDetails.themeColor,
+                color: state.widgetDetails.fontColor,
+                borderColor: state.widgetDetails.borderColor,
+                fontFamily: (_a = state.widgetDetails.font) !== null && _a !== void 0 ? _a : 'inherit',
+            }, onClick: this.handleClick }, h$1("span", { key: '4190b6c9e7e0b3c272e35f7542379a635b62b57c', class: "taktak-icon" }, h$1("img", { key: '6d92afb9aa6adcf5ea2c96b9eaf1b8fa118d1e83', src: imageSrc, class: "t-icon-image" })), h$1("span", { key: '50a03ca70eaa47baa6fd20f641cce14a3cdf0ccd', class: "button-text" }, state.widgetDetails.label))));
+    }
+    static get assetsDirs() { return ["assets"]; }
+    static get style() { return ButtonWidgetStyle0; }
+}, [1, "button-widget"]);
+function defineCustomElement() {
+    if (typeof customElements === "undefined") {
+        return;
+    }
+    const components = ["button-widget"];
+    components.forEach(tagName => { switch (tagName) {
+        case "button-widget":
+            if (!customElements.get(tagName)) {
+                customElements.define(tagName, ButtonWidget);
+            }
             break;
-          }
-        }
-      }
-      if (cmpMeta.$members$) {
-        Object.entries(cmpMeta.$members$).map(([memberName, [memberFlags]]) => {
-          if (memberFlags & 31 /* Prop */ && elm.hasOwnProperty(memberName)) {
-            const value = elm[memberName];
-            delete elm[memberName];
-            elm[memberName] = value;
-          }
-        });
-      }
-      {
-        initializeComponent(elm, hostRef, cmpMeta);
-      }
-    } else {
-      if (hostRef == null ? void 0 : hostRef.$lazyInstance$) ; else if (hostRef == null ? void 0 : hostRef.$onReadyPromise$) {
-        hostRef.$onReadyPromise$.then(() => fireConnectedCallback());
-      }
-    }
-    endConnected();
-  }
-};
-var disconnectedCallback = async (elm) => {
-  if ((plt.$flags$ & 1 /* isTmpDisconnected */) === 0) {
-    getHostRef(elm);
-  }
-};
-var proxyCustomElement = (Cstr, compactMeta) => {
-  const cmpMeta = {
-    $flags$: compactMeta[0],
-    $tagName$: compactMeta[1]
-  };
-  {
-    cmpMeta.$members$ = compactMeta[2];
-  }
-  {
-    cmpMeta.$watchers$ = Cstr.$watchers$;
-  }
-  {
-    cmpMeta.$attrsToReflect$ = [];
-  }
-  Object.assign(Cstr.prototype, {
-    __registerHost() {
-      registerHost(this, cmpMeta);
-    },
-    connectedCallback() {
-      getHostRef(this);
-      connectedCallback(this);
-    },
-    disconnectedCallback() {
-      disconnectedCallback(this);
-    },
-    __attachShadow() {
-      {
-        if (!this.shadowRoot) {
-          {
-            this.attachShadow({ mode: "open" });
-          }
-        } else {
-          if (this.shadowRoot.mode !== "open") {
-            throw new Error(
-              `Unable to re-use existing shadow root for ${cmpMeta.$tagName$}! Mode is set to ${this.shadowRoot.mode} but Stencil only supports open shadow roots.`
-            );
-          }
-        }
-      }
-    }
-  });
-  Cstr.is = cmpMeta.$tagName$;
-  return proxyComponent(Cstr, cmpMeta);
-};
+    } });
+}
+defineCustomElement();
 
-// src/runtime/nonce.ts
-var setNonce = (nonce) => plt.$nonce$ = nonce;
+export { ButtonWidget as B, defineCustomElement as d, state as s };
 
-// src/runtime/platform-options.ts
-var setPlatformOptions = (opts) => Object.assign(plt, opts);
-
-export { BUILD as B, Env as E, H, NAMESPACE as N, setNonce as a, setPlatformOptions as b, Host as c, getAssetPath as g, h, proxyCustomElement as p, setAssetPath as s };
-
-//# sourceMappingURL=p-7da10219.js.map
+//# sourceMappingURL=p-ea939779.js.map

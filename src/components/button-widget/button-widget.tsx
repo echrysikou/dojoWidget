@@ -1,25 +1,20 @@
-import { Component, Env, getAssetPath, h, Host } from '@stencil/core';
+import { Component, Env, h, Host } from '@stencil/core';
 import { state } from '../../store/store';
-
-console.log("Elena", getAssetPath(''))
 
 @Component({
   tag: 'button-widget',
   styleUrl: './button-widget.css',
   shadow: true,
-  assetsDirs: ['assets']
-
+  assetsDirs: ['assets'],
 })
 export class ButtonWidget {
   private handleClick = () => {
-    window.location.href = Env.PLATFORM_URL + 'donate?id=' + state.widgetDetails.uuid; // Change to your URL source
+    const url = Env.PLATFORM_URL + '/donate?id=' + state.widgetDetails.uuid;
+    window.open(url, '_blank', 'noopener,noreferrer');
   };
 
   render() {
-
-    const imageSrc=getAssetPath('/assets/t-icon.svg');
-    
-
+    const imageSrc = Env.CDN_PATH + '/assets/t-icon.svg';
     return (
       <Host>
         <button

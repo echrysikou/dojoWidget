@@ -1,6 +1,28 @@
+'use strict';
+
+function _interopNamespace(e) {
+  if (e && e.__esModule) return e;
+  var n = Object.create(null);
+  if (e) {
+    Object.keys(e).forEach(function (k) {
+      if (k !== 'default') {
+        var d = Object.getOwnPropertyDescriptor(e, k);
+        Object.defineProperty(n, k, d.get ? d : {
+          enumerable: true,
+          get: function () {
+            return e[k];
+          }
+        });
+      }
+    });
+  }
+  n['default'] = e;
+  return Object.freeze(n);
+}
+
 const NAMESPACE = 'taktakwidget';
 const BUILD = /* taktakwidget */ { allRenderFn: true, appendChildSlotFix: false, asyncLoading: true, asyncQueue: false, attachStyles: true, cloneNodeFix: false, cmpDidLoad: false, cmpDidRender: false, cmpDidUnload: false, cmpDidUpdate: false, cmpShouldUpdate: false, cmpWillLoad: true, cmpWillRender: false, cmpWillUpdate: false, connectedCallback: false, constructableCSS: true, cssAnnotations: true, devTools: false, disconnectedCallback: false, element: false, event: false, experimentalScopedSlotChanges: false, experimentalSlotFixes: false, formAssociated: false, hasRenderFn: true, hostListener: false, hostListenerTarget: false, hostListenerTargetBody: false, hostListenerTargetDocument: false, hostListenerTargetParent: false, hostListenerTargetWindow: false, hotModuleReplacement: false, hydrateClientSide: false, hydrateServerSide: false, hydratedAttribute: false, hydratedClass: true, hydratedSelectorName: "hydrated", initializeNextTick: false, invisiblePrehydration: true, isDebug: false, isDev: false, isTesting: false, lazyLoad: true, lifecycle: true, lifecycleDOMEvents: false, member: true, method: false, mode: false, observeAttribute: true, profile: false, prop: true, propBoolean: false, propMutable: true, propNumber: false, propString: true, reflect: true, scoped: false, scopedSlotTextContentFix: false, scriptDataOpts: false, shadowDelegatesFocus: false, shadowDom: true, slot: false, slotChildNodesFix: false, slotRelocation: false, state: true, style: true, svg: false, taskQueue: true, transformTagName: false, updatable: true, vdomAttribute: true, vdomClass: true, vdomFunctional: false, vdomKey: true, vdomListener: true, vdomPropOrAttr: true, vdomRef: false, vdomRender: true, vdomStyle: true, vdomText: true, vdomXlink: false, watchCallback: true };
-const Env = /* taktakwidget */ {"API_URL":"https://services.taktak.atc.gr/api/v1","PLATFORM_URL":"https://platform.dev.taktak.atc.gr/","STRIPE_PUBLISHABLE_KEY":"pk_test_51PbI26HsEMJqyycKszbjCmMmcxLbTZrgFsIp2PIemUfWWaPfcM17teJZzE20XXVxZgPnaI1jdBW328YohTheq3Tt00wcDnEbpn"};
+const Env = /* taktakwidget */ {"API_URL":"https://services.taktak.atc.gr/api/v1","PLATFORM_URL":"https://platform.dev.taktak.atc.gr","STRIPE_PUBLISHABLE_KEY":"pk_test_51PbI26HsEMJqyycKszbjCmMmcxLbTZrgFsIp2PIemUfWWaPfcM17teJZzE20XXVxZgPnaI1jdBW328YohTheq3Tt00wcDnEbpn","CDN_PATH":"https://echrysikou.github.io/dojoWidget/dist"};
 
 /*
  Stencil Client Platform v4.21.0 | MIT Licensed | https://stenciljs.com
@@ -43,13 +65,13 @@ var loadModule = (cmpMeta, hostRef, hmrVersionId) => {
     return module[exportName];
   }
   /*!__STENCIL_STATIC_IMPORT_SWITCH__*/
-  return import(
+  return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
     /* @vite-ignore */
     /* webpackInclude: /\.entry\.js$/ */
     /* webpackExclude: /\.system\.entry\.js$/ */
     /* webpackMode: "lazy" */
     `./${bundleId}.entry.js${""}`
-  ).then((importedModule) => {
+  )); }).then((importedModule) => {
     {
       cmpModules.set(bundleId, importedModule);
     }
@@ -116,12 +138,6 @@ var flush = () => {
 };
 var nextTick = (cb) => promiseResolve().then(cb);
 var writeTask = /* @__PURE__ */ queueTask(queueDomWrites, true);
-
-// src/runtime/asset-path.ts
-var getAssetPath = (path) => {
-  const assetUrl = new URL(path, plt.$resourcesUrl$);
-  return assetUrl.origin !== win.location.origin ? assetUrl.href : assetUrl.pathname;
-};
 
 // src/utils/constants.ts
 var EMPTY_OBJ = {};
@@ -1200,6 +1216,14 @@ var bootstrapLazy = (lazyBundles, options = {}) => {
 // src/runtime/nonce.ts
 var setNonce = (nonce) => plt.$nonce$ = nonce;
 
-export { Env as E, Host as H, getAssetPath as a, bootstrapLazy as b, forceUpdate as f, getRenderingRef as g, h, promiseResolve as p, registerInstance as r, setNonce as s };
+exports.Env = Env;
+exports.Host = Host;
+exports.bootstrapLazy = bootstrapLazy;
+exports.forceUpdate = forceUpdate;
+exports.getRenderingRef = getRenderingRef;
+exports.h = h;
+exports.promiseResolve = promiseResolve;
+exports.registerInstance = registerInstance;
+exports.setNonce = setNonce;
 
-//# sourceMappingURL=index-e127872c.js.map
+//# sourceMappingURL=index-110032ec.js.map

@@ -1,4 +1,4 @@
-import { p as proxyCustomElement, H, h, c as Host } from './p-7da10219.js';
+import { p as proxyCustomElement, H, h, c as Host } from './p-fcc1755e.js';
 
 const fullWidgetCss = "";
 const FullWidgetStyle0 = fullWidgetCss;
@@ -31,4 +31,4 @@ defineCustomElement();
 
 export { FullWidget as F, defineCustomElement as d };
 
-//# sourceMappingURL=p-9ca1c6d8.js.map
+//# sourceMappingURL=p-86805dbb.js.map

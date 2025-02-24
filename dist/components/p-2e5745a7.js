@@ -1,4 +1,4 @@
-import { p as proxyCustomElement, H, h, c as Host } from './p-7da10219.js';
+import { p as proxyCustomElement, H, h, c as Host } from './p-fcc1755e.js';
 
 const qrCodeWidgetCss = "";
 const QrCodeWidgetStyle0 = qrCodeWidgetCss;
@@ -34,4 +34,4 @@ defineCustomElement();
 
 export { QrCodeWidget as Q, defineCustomElement as d };
 
-//# sourceMappingURL=p-c7561521.js.map
+//# sourceMappingURL=p-2e5745a7.js.map
