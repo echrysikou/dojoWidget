@@ -18,7 +18,7 @@ export class AmountInput {
     }
     watchAmount(newValue) {
         const amount = newValue ? parseFloat(newValue) : 0;
-        state.stripe = { paymentElementIntentAmount: amount * 100 };
+        state.stripe = { paymentElementIntentAmount: amount * 100, amountIsValid: amount >= 1 };
         this.amountTooLow = amount < 1;
     }
     componentWillLoad() {
@@ -48,9 +48,9 @@ export class AmountInput {
     }
     render() {
         const { font, themeColor: bgColor, borderColor: secondaryColor } = state.widgetDetails;
-        return (h("div", { key: '4ba263a37d2c2edb17a11d9da2416d45520925df', class: "enter-amount-container" }, h("app-typography", { key: 'cd48619a9404ce2b8c896b11a006dad575218753', variant: "secondaryCaption", fontFamily: font.includes('Baloo Bhaijaan 2') ? 'Raleway, sans-serif' : font, styleProps: {
+        return (h("div", { key: '47a7b1de7236cc8a58ed1ed52cce3b93b4d6bc0b', class: "enter-amount-container" }, h("app-typography", { key: '86f11504143290b67943e9bc7eff7dd1453d4e1a', variant: "secondaryCaption", fontFamily: font.includes('Baloo Bhaijaan 2') ? 'Raleway, sans-serif' : font, styleProps: {
                 fontWeight: '500',
-            } }, i18n.t('enterAmount')), h("div", { key: 'aac977ad06e6bd8ba4b6ae7fa11ee6f47f64aacc', class: "form-control", onMouseOver: () => (this.isHovered = true), onMouseOut: () => (this.isHovered = false), style: { height: '56px' } }, h("div", { key: '1c079b7924e6c2c0cb614e7c571a6d606025f1d1', class: "input-container", style: { border: `${this.isHovered ? '2px' : '0.5px'} solid ${secondaryColor}`, height: '56px' } }, h("span", { key: 'f01cb6f1c9629072553c91ea30d8f2fae5709f73', class: "input-adornment", style: { fontFamily: font } }, "\u20AC"), h("input", { key: 'faf85c3be9c254f0f7cdc85151f8931f5333ab8e', id: `outlined-adornment-amount${this.selectedAmount}`, ref: el => (this.inputRef = el), style: { fontFamily: font }, type: "number", onInput: event => this.handleInput(event), step: "0.01", min: "1", value: this.selectedAmount })), this.amountTooLow && (h("app-typography", { key: '5e4a29602f39b809d2cc7118c7437c4061f5bb3d', variant: "secondaryMessage", class: "low-amount-error", style: { color: getSafeDangerColor(bgColor) } }, i18n.t('minStripeAmount'))))));
+            } }, i18n.t('enterAmount')), h("div", { key: '1de04268f9c025dcfbecf828a283eeaf85289b0d', class: "form-control", onMouseOver: () => (this.isHovered = true), onMouseOut: () => (this.isHovered = false), style: { height: '56px' } }, h("div", { key: 'fe71ac6d984547fb0a0d5660c03dce0e0a9ce1fb', class: "input-container", style: { border: `${this.isHovered ? '2px' : '0.5px'} solid ${secondaryColor}`, height: '56px' } }, h("span", { key: '327860d11c724e592bd9f2d017ded94b30d42ad6', class: "input-adornment", style: { fontFamily: font } }, "\u20AC"), h("input", { key: '89faaa14125054bf28c09e8e07cf68ae1ff51035', id: `outlined-adornment-amount${this.selectedAmount}`, ref: el => (this.inputRef = el), style: { fontFamily: font }, type: "number", onInput: event => this.handleInput(event), step: "0.01", min: "1", value: this.selectedAmount })), this.amountTooLow && (h("app-typography", { key: 'eba50d24677ba8e6f67db01c93691a3ad0111ceb', variant: "secondaryMessage", class: "low-amount-error", style: { color: getSafeDangerColor(bgColor) } }, i18n.t('minStripeAmount'))))));
     }
     static get is() { return "amount-input"; }
     static get originalStyleUrls() {

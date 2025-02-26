@@ -37,6 +37,7 @@ export interface IThemeColors {
 
 export interface IStripeElement {
   paymentElementIntentAmount: number;
+  amountIsValid: boolean;
 }
 
 export interface IUserProfile {

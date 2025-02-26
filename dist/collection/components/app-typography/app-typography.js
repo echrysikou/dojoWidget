@@ -8,7 +8,7 @@ export class Typography {
     render() {
         const Tag = this.variant.startsWith('h') ? this.variant : 'p';
         const font = this.fontFamily === 'Baloo Bhaijaan 2, sans serif' ? 'var(--font-primary)' : this.fontFamily;
-        return (h(Tag, { key: '22140afc88d5dd9d2cdcb81c22e7bfb58435997e', class: `typography ${this.variant}`, style: Object.assign({ fontFamily: font }, this.styleProps) }, h("slot", { key: '0340e003737daa1ba6f0aaa62fd5d450d3da4b35' })));
+        return (h(Tag, { key: '7fba3365ec686c09c4080d280094554db31ab422', class: `typography ${this.variant}`, style: Object.assign({ fontFamily: font }, this.styleProps) }, h("slot", { key: '04ff3d6ed4da75d2f3b4e98f9a683bad8c04d159' })));
     }
     static get is() { return "app-typography"; }
     static get encapsulation() { return "shadow"; }

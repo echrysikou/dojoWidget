@@ -1,29 +1,22 @@
 import { h } from "@stencil/core";
 import i18n from "../../../../utils/i18n";
 import { state } from "../../../../store/store";
-import { predefinedThemes, WG_DEFAULT_BUTTON_BG, WG_DEFAULT_ELEMENT_BORDER } from "../../../../utils/constants";
-import { areColorArraysEqual, getContrastColor } from "../../../../utils/utils";
+import { getContrastColor, getWidgetButtonAndBorderColors } from "../../../../utils/utils";
 export class AmountButtons {
     constructor() {
         this.hoveredButton = null;
     }
     render() {
-        var _a, _b;
         const { font, themeColor: primaryColor, borderColor: secondaryColor } = state.widgetDetails;
         const btnAmounts = [3, 10, 15];
-        let buttonBgColor = WG_DEFAULT_BUTTON_BG;
-        let elemBorderColor = WG_DEFAULT_ELEMENT_BORDER;
-        if (primaryColor && secondaryColor) {
-            const theme = predefinedThemes.find(t => areColorArraysEqual(t.colors, [primaryColor, secondaryColor]));
-            buttonBgColor = (_a = theme === null || theme === void 0 ? void 0 : theme.buttonBgColor) !== null && _a !== void 0 ? _a : WG_DEFAULT_BUTTON_BG;
-            elemBorderColor = (_b = theme === null || theme === void 0 ? void 0 : theme.elementBorderColor) !== null && _b !== void 0 ? _b : WG_DEFAULT_ELEMENT_BORDER;
-        }
+        const buttonBgColor = getWidgetButtonAndBorderColors(primaryColor, secondaryColor).buttonBgColor;
+        const elemBorderColor = getWidgetButtonAndBorderColors(primaryColor, secondaryColor).elemBorderColor;
         const updateAmount = (amount) => {
-            state.stripe = { paymentElementIntentAmount: amount * 100 }; //in cents
+            state.stripe = { paymentElementIntentAmount: amount * 100, amountIsValid: true }; //in cents
         };
-        return (h("div", { key: '59c95a19e835085d6cc0d3d3e172612fc8ea39b3', class: "select-amount-container" }, h("app-typography", { key: '3457d31c0af4987e0f9e0635583c8f7fa022ca2f', variant: "secondaryP", fontFamily: font, styleProps: {
+        return (h("div", { key: 'ec36cfd3cc705426ed7034323b866a34deb9928f', class: "select-amount-container" }, h("app-typography", { key: '709a8ecb805342a6e6d7b58225703e9d26862809', variant: "secondaryP", fontFamily: font, styleProps: {
                 fontWeight: '700',
-            } }, i18n.t('selectAmount')), h("div", { key: 'a2260639d4f21e991ada6645bbb44396be23dfa9', class: "amount-btns-container" }, btnAmounts.map(amount => {
+            } }, i18n.t('selectAmount')), h("div", { key: '7302cca9417f299df3555d86943ec4d17b7f5151', class: "amount-btns-container" }, btnAmounts.map(amount => {
             const isHovered = this.hoveredButton === amount;
             const currentBg = isHovered ? secondaryColor : buttonBgColor;
             const currentBorder = isHovered ? secondaryColor : elemBorderColor;

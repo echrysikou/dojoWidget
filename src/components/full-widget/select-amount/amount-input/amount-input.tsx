@@ -21,8 +21,7 @@ export class AmountInput {
   @Watch('selectedAmount')
   watchAmount(newValue: string) {
     const amount = newValue ? parseFloat(newValue) : 0;
-
-    state.stripe = { paymentElementIntentAmount: amount * 100 };
+    state.stripe = { paymentElementIntentAmount: amount * 100, amountIsValid: amount >= 1 };
     this.amountTooLow = amount < 1;
   }
 

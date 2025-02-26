@@ -1,3 +1,4 @@
+import { predefinedThemes, WG_DEFAULT_BUTTON_BG, WG_DEFAULT_ELEMENT_BORDER } from "./constants";
 export function format(first, middle, last) {
     return (first || '') + (middle ? ` ${middle}` : '') + (last ? ` ${last}` : '');
 }
@@ -5,9 +6,9 @@ export function format(first, middle, last) {
 export const capitalizeFirstCharOfEachWord = (text) => {
     return text
         .toLowerCase()
-        .split(" ")
-        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(" ");
+        .split(' ')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
 };
 export const resolveCssVariable = (cssVar) => {
     if (!cssVar || cssVar === '' || !cssVar.startsWith('var('))
@@ -34,8 +35,83 @@ export const getAvatarInitials = (name, surname) => {
         return surname.charAt(0).toUpperCase() + surname.charAt(1).toUpperCase();
     }
     else {
-        return "UU"; //Unknown User
+        return 'UU'; //Unknown User
     }
+};
+export const getWidgetButtonAndBorderColors = (primaryColor, secondaryColor) => {
+    var _a, _b;
+    let buttonBgColor = WG_DEFAULT_BUTTON_BG;
+    let elemBorderColor = WG_DEFAULT_ELEMENT_BORDER;
+    if (primaryColor && secondaryColor) {
+        const theme = predefinedThemes.find(t => areColorArraysEqual(t.colors, [primaryColor, secondaryColor]));
+        buttonBgColor = (_a = theme === null || theme === void 0 ? void 0 : theme.buttonBgColor) !== null && _a !== void 0 ? _a : WG_DEFAULT_BUTTON_BG;
+        elemBorderColor = (_b = theme === null || theme === void 0 ? void 0 : theme.elementBorderColor) !== null && _b !== void 0 ? _b : WG_DEFAULT_ELEMENT_BORDER;
+    }
+    return { buttonBgColor, elemBorderColor };
+};
+export const getStripeWidgetFontColor = (bgColor, fontClr) => {
+    return resolveCssVariable(getContrastColor(bgColor, fontClr).isContrastGood ? fontClr : getContrastColor(bgColor).blackOrWhite);
+};
+export const getStripeElementAppearance = (fontColor, primaryColor, secondaryColor) => {
+    const secondary = resolveCssVariable(secondaryColor);
+    const buttonBgColor = getWidgetButtonAndBorderColors(primaryColor, secondaryColor).buttonBgColor;
+    const stripeFontColor = getStripeWidgetFontColor(buttonBgColor, fontColor);
+    return {
+        // https://docs.stripe.com/elements/appearance-api
+        theme: 'stripe',
+        variables: {
+            colorText: resolveCssVariable(fontColor),
+            colorPrimary: secondary,
+            accessibleColorOnColorPrimary: stripeFontColor,
+            accessibleColorOnColorBackground: stripeFontColor,
+            tabIconHoverColor: resolveCssVariable('var(--text)'), // card icon color on hover of card button
+            colorBackground: resolveCssVariable(buttonBgColor),
+            colorDanger: getSafeDangerColor(primaryColor),
+            fontFamily: 'Verdana, sans-serif',
+            borderRadius: '5px',
+        },
+        rules: {
+            '.TabIcon': {
+                fill: 'var(--colorTextPlaceholder)',
+            },
+            '.TabIcon--selected': {
+                fill: resolveCssVariable('var(--text)'),
+            },
+            '.TabIcon--selected:hover': {
+                fill: resolveCssVariable('var(--text)'),
+            },
+            '.TabIcon:hover': {
+                fill: resolveCssVariable('var(--text)'),
+            },
+            '.TabLabel': {
+                color: 'var(--colorTextPlaceholder)',
+            },
+            '.TabLabel:hover': {
+                color: resolveCssVariable('var(--text)'),
+            },
+            '.TabLabel--selected': {
+                color: resolveCssVariable('var(--text)'),
+            },
+            '.Tab': {
+                color: secondary,
+            },
+            '.Tab:hover': {
+                border: `1px solid ${secondary}`,
+                outline: `1px solid ${secondary}`,
+                color: secondary,
+            },
+            '.Tab--selected:hover': {
+                outline: `2px solid ${secondary}`,
+                color: secondary,
+            },
+            '.Input': {
+                color: 'var(--colorTextPlaceholder)',
+            },
+            '.Input:focus': {
+                color: resolveCssVariable('var(--text)'),
+            },
+        },
+    };
 };
 export const getContrastColor = (backgroundColor, fontColor = 'var(--text)') => {
     // convert hex color to RGB

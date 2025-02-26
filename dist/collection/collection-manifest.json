@@ -1,5 +1,6 @@
 {
   "entries": [
+    "components/app-loader/app-loader.js",
     "components/app-typography/app-typography.js",
     "components/button-widget/button-widget.js",
     "components/full-widget/full-widget.js",
@@ -7,6 +8,7 @@
     "components/full-widget/select-amount/select-amount.js",
     "components/full-widget/select-amount/amount-buttons/amount-buttons.js",
     "components/full-widget/select-amount/amount-input/amount-input.js",
+    "components/full-widget/stripe-element/stripe-payment.js",
     "components/qr-code-widget/qr-code-widget.js",
     "components/widget-selector/widget-selector.js"
   ],

@@ -18,6 +18,7 @@ const { state, onChange } = createStore({
     },
     stripe: {
         paymentElementIntentAmount: 100,
+        amountIsValid: false
     },
 });
 // Export state and onChange for use in components

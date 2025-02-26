@@ -1,8 +1,7 @@
 import { Component, h, State } from '@stencil/core';
 import i18n from '@src/utils/i18n';
 import { state } from '@src/store/store';
-import { predefinedThemes, WG_DEFAULT_BUTTON_BG, WG_DEFAULT_ELEMENT_BORDER } from '@src/utils/constants';
-import { areColorArraysEqual, getContrastColor } from '@src/utils/utils';
+import { getContrastColor, getWidgetButtonAndBorderColors } from '@src/utils/utils';
 
 @Component({
   tag: 'amount-buttons',
@@ -15,18 +14,11 @@ export class AmountButtons {
   render() {
     const { font, themeColor: primaryColor, borderColor: secondaryColor } = state.widgetDetails;
     const btnAmounts = [3, 10, 15];
-
-    let buttonBgColor = WG_DEFAULT_BUTTON_BG;
-    let elemBorderColor = WG_DEFAULT_ELEMENT_BORDER;
-
-    if (primaryColor && secondaryColor) {
-      const theme = predefinedThemes.find(t => areColorArraysEqual(t.colors, [primaryColor, secondaryColor]));
-      buttonBgColor = theme?.buttonBgColor ?? WG_DEFAULT_BUTTON_BG;
-      elemBorderColor = theme?.elementBorderColor ?? WG_DEFAULT_ELEMENT_BORDER;
-    }
+    const buttonBgColor = getWidgetButtonAndBorderColors(primaryColor, secondaryColor).buttonBgColor;
+    const elemBorderColor = getWidgetButtonAndBorderColors(primaryColor, secondaryColor).elemBorderColor;
 
     const updateAmount = (amount: number) => {
-      state.stripe = { paymentElementIntentAmount: amount * 100 }; //in cents
+      state.stripe = { paymentElementIntentAmount: amount * 100, amountIsValid: true }; //in cents
     };
 
     return (

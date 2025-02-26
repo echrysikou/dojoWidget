@@ -2,6 +2,9 @@
   "selectAmount": "Select amount",
   "enterAmount": "or enter amount",
   "minStripeAmount": "Stripe only allows amounts greater than €1.00",
-  "transactionFeesPercentage": "{{percentage}} goes to transaction fees"
-
+  "transactionFeesPercentage": "{{percentage}} goes to transaction fees",
+  "choosePaymentMethod": "Choose a payment method",
+  "payNow": "Pay Now",
+  "validationError": "Some required fields are missing or incorrect. Please check and try again.",
+  "missingAmount": "Please select an amount first"
 }

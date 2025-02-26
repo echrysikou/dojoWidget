@@ -1,4 +1,4 @@
-import { A as AmountButtons, d as defineCustomElement$1 } from './p-844aa459.js';
+import { A as AmountButtons, d as defineCustomElement$1 } from './p-80fb100a.js';
 
 const SelectAmount = AmountButtons;
 const defineCustomElement = defineCustomElement$1;

@@ -22,6 +22,7 @@
  - [amount-input](../full-widget/select-amount/amount-input)
  - [collaborators-list](../full-widget/collaborators-list)
  - [full-widget](../full-widget)
+ - [stripe-payment](../full-widget/stripe-element)
 
 ### Graph
 ```mermaid
@@ -30,6 +31,7 @@ graph TD;
   amount-input --> app-typography
   collaborators-list --> app-typography
   full-widget --> app-typography
+  stripe-payment --> app-typography
   style app-typography fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

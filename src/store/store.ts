@@ -20,6 +20,7 @@ const { state, onChange } = createStore<IState>({
   },
   stripe: {
     paymentElementIntentAmount: 100,
+    amountIsValid: false
   },
 });
 

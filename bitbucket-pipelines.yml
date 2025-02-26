@@ -22,7 +22,7 @@ definitions:
 #          - 'internal.atc.k8s'
 pipelines:
   branches:
-    '{development, feature/**, bugfix/**}':
+    '{development,feature/**,bugfix/**}':
         - parallel:
             - step: *sonar-step
             - step: *security-step

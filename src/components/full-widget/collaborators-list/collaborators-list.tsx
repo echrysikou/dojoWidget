@@ -1,7 +1,7 @@
 import { ICollaborator } from '@src/interfaces/interfaces';
 import { state } from '@src/store/store';
 import { TRANSACTION_FEES_PERCENTAGE } from '@src/utils/constants';
-import { capitalizeFirstCharOfEachWord, getAvatarInitials } from '@src/utils/utils';
+import { capitalizeFirstCharOfEachWord, getAvatarInitials, getContrastColor } from '@src/utils/utils';
 import { Component, h } from '@stencil/core';
 import i18n from '@src/utils/i18n';
 
@@ -12,7 +12,7 @@ import i18n from '@src/utils/i18n';
 })
 export class CollaboratorsList {
   render() {
-    const { font, collaborators } = state.widgetDetails;
+    const { font, collaborators, borderColor: secondaryColor } = state.widgetDetails;
 
     return (
       <div class="collaborators-container">
@@ -37,12 +37,16 @@ export class CollaboratorsList {
                   {collaborator?.share ? collaborator.share * 100 : 0} %
                 </app-typography>
 
-                <div class="avatar-container">
+                <div class="avatar-container" style={{backgroundColor: secondaryColor}}>
                   {collaborator?.profile?.image ? (
                     <img class="avatar-image" src={collaborator.profile.image} alt={name + ' ' + surname} />
                   ) : (
                     <div class="avatar-initials">
-                      <app-typography variant="body1" fontFamily={'var(--font-primary)'} styleProps={{ fontSize: '35px', marginBottom: '-5px' }}>
+                      <app-typography
+                        variant="body1"
+                        fontFamily={'var(--font-primary)'}
+                        styleProps={{ fontSize: '35px', marginBottom: '-5px', backgroundColor: secondaryColor, color: getContrastColor(secondaryColor).blackOrWhite }}
+                      >
                         {initials}
                       </app-typography>
                     </div>

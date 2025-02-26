@@ -65,7 +65,7 @@ export class WidgetSelector {
         }
     }
     render() {
-        return (h(Host, { key: '478b0d0e7d61d127934614b580b9fd87a077e3a6' }, this.renderWidget()));
+        return (h(Host, { key: 'bacdcf4c062febf3f6d17dab0a9ff683afa502c3' }, this.renderWidget()));
     }
     static get is() { return "tt-widget"; }
     static get originalStyleUrls() {

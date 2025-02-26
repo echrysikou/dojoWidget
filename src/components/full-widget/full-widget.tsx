@@ -27,8 +27,8 @@ export class FullWidget {
           </app-typography>
 
           <select-amount />
-
           <collaborators-list />
+          <stripe-payment />
         </div>
       </Host>
     );

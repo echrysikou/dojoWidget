@@ -30,11 +30,14 @@ graph TD;
   full-widget --> app-typography
   full-widget --> select-amount
   full-widget --> collaborators-list
+  full-widget --> stripe-payment
   select-amount --> amount-buttons
   select-amount --> amount-input
   amount-buttons --> app-typography
   amount-input --> app-typography
   collaborators-list --> app-typography
+  stripe-payment --> app-typography
+  stripe-payment --> app-loader
   style tt-widget fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -11,6 +11,10 @@ export namespace Components {
     interface AmountInput {
         "maxDecimals": number;
     }
+    interface AppLoader {
+        "color": string;
+        "height": number;
+    }
     interface AppTypography {
         "fontFamily": string;
         "styleProps": {};
@@ -26,6 +30,8 @@ export namespace Components {
         "wId": string;
     }
     interface SelectAmount {
+    }
+    interface StripePayment {
     }
     interface TtWidget {
         "language": string;
@@ -44,6 +50,12 @@ declare global {
     var HTMLAmountInputElement: {
         prototype: HTMLAmountInputElement;
         new (): HTMLAmountInputElement;
+    };
+    interface HTMLAppLoaderElement extends Components.AppLoader, HTMLStencilElement {
+    }
+    var HTMLAppLoaderElement: {
+        prototype: HTMLAppLoaderElement;
+        new (): HTMLAppLoaderElement;
     };
     interface HTMLAppTypographyElement extends Components.AppTypography, HTMLStencilElement {
     }
@@ -81,6 +93,12 @@ declare global {
         prototype: HTMLSelectAmountElement;
         new (): HTMLSelectAmountElement;
     };
+    interface HTMLStripePaymentElement extends Components.StripePayment, HTMLStencilElement {
+    }
+    var HTMLStripePaymentElement: {
+        prototype: HTMLStripePaymentElement;
+        new (): HTMLStripePaymentElement;
+    };
     interface HTMLTtWidgetElement extends Components.TtWidget, HTMLStencilElement {
     }
     var HTMLTtWidgetElement: {
@@ -90,12 +108,14 @@ declare global {
     interface HTMLElementTagNameMap {
         "amount-buttons": HTMLAmountButtonsElement;
         "amount-input": HTMLAmountInputElement;
+        "app-loader": HTMLAppLoaderElement;
         "app-typography": HTMLAppTypographyElement;
         "button-widget": HTMLButtonWidgetElement;
         "collaborators-list": HTMLCollaboratorsListElement;
         "full-widget": HTMLFullWidgetElement;
         "qr-code-widget": HTMLQrCodeWidgetElement;
         "select-amount": HTMLSelectAmountElement;
+        "stripe-payment": HTMLStripePaymentElement;
         "tt-widget": HTMLTtWidgetElement;
     }
 }
@@ -104,6 +124,10 @@ declare namespace LocalJSX {
     }
     interface AmountInput {
         "maxDecimals"?: number;
+    }
+    interface AppLoader {
+        "color"?: string;
+        "height"?: number;
     }
     interface AppTypography {
         "fontFamily"?: string;
@@ -121,6 +145,8 @@ declare namespace LocalJSX {
     }
     interface SelectAmount {
     }
+    interface StripePayment {
+    }
     interface TtWidget {
         "language"?: string;
         "wId"?: string;
@@ -128,12 +154,14 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "amount-buttons": AmountButtons;
         "amount-input": AmountInput;
+        "app-loader": AppLoader;
         "app-typography": AppTypography;
         "button-widget": ButtonWidget;
         "collaborators-list": CollaboratorsList;
         "full-widget": FullWidget;
         "qr-code-widget": QrCodeWidget;
         "select-amount": SelectAmount;
+        "stripe-payment": StripePayment;
         "tt-widget": TtWidget;
     }
 }
@@ -143,12 +171,14 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "amount-buttons": LocalJSX.AmountButtons & JSXBase.HTMLAttributes<HTMLAmountButtonsElement>;
             "amount-input": LocalJSX.AmountInput & JSXBase.HTMLAttributes<HTMLAmountInputElement>;
+            "app-loader": LocalJSX.AppLoader & JSXBase.HTMLAttributes<HTMLAppLoaderElement>;
             "app-typography": LocalJSX.AppTypography & JSXBase.HTMLAttributes<HTMLAppTypographyElement>;
             "button-widget": LocalJSX.ButtonWidget & JSXBase.HTMLAttributes<HTMLButtonWidgetElement>;
             "collaborators-list": LocalJSX.CollaboratorsList & JSXBase.HTMLAttributes<HTMLCollaboratorsListElement>;
             "full-widget": LocalJSX.FullWidget & JSXBase.HTMLAttributes<HTMLFullWidgetElement>;
             "qr-code-widget": LocalJSX.QrCodeWidget & JSXBase.HTMLAttributes<HTMLQrCodeWidgetElement>;
             "select-amount": LocalJSX.SelectAmount & JSXBase.HTMLAttributes<HTMLSelectAmountElement>;
+            "stripe-payment": LocalJSX.StripePayment & JSXBase.HTMLAttributes<HTMLStripePaymentElement>;
             "tt-widget": LocalJSX.TtWidget & JSXBase.HTMLAttributes<HTMLTtWidgetElement>;
         }
     }

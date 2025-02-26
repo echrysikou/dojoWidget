@@ -4,7 +4,7 @@ export class QrCodeWidget {
         this.wId = undefined;
     }
     render() {
-        return (h(Host, { key: '57bb081c4968f99d01dfa89780b3f4961af213a3' }, h("div", { key: 'aaf7eb5f2dbe0077fdd15fe5fe5dc4233b6df260' }, "QR code")));
+        return (h(Host, { key: '8eec98840e3d4f6593533bcee8c4fed8a48c4c8d' }, h("div", { key: 'd318457ec198cebaa9daab3a2c53a354ac82b881' }, "QR code")));
     }
     static get is() { return "qr-code-widget"; }
     static get encapsulation() { return "shadow"; }
