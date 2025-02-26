@@ -60,6 +60,8 @@ export const getStripeWidgetFontColor = (bgColor, fontClr) => {
 export const getStripeElementAppearance = (fontColor, primaryColor, secondaryColor) => {
     const secondary = resolveCssVariable(secondaryColor);
     const buttonBgColor = getWidgetButtonAndBorderColors(primaryColor, secondaryColor).buttonBgColor;
+    console.log("elena to buttonbgColor", buttonBgColor);
+    console.log("elena to getSafeDangerColor(primaryColor)", primaryColor, getSafeDangerColor(primaryColor));
     const stripeFontColor = getStripeWidgetFontColor(buttonBgColor, fontColor);
     return {
         // https://docs.stripe.com/elements/appearance-api
@@ -69,7 +71,7 @@ export const getStripeElementAppearance = (fontColor, primaryColor, secondaryCol
             colorPrimary: secondary,
             accessibleColorOnColorPrimary: stripeFontColor,
             accessibleColorOnColorBackground: stripeFontColor,
-            tabIconHoverColor: resolveCssVariable('var(--text)'), // card icon color on hover of card button
+            tabIconHoverColor: resolveCssVariable('var(--text, #181f1c)'), // card icon color on hover of card button
             colorBackground: resolveCssVariable(buttonBgColor),
             colorDanger: getSafeDangerColor(primaryColor),
             fontFamily: 'Verdana, sans-serif',
@@ -80,22 +82,22 @@ export const getStripeElementAppearance = (fontColor, primaryColor, secondaryCol
                 fill: 'var(--colorTextPlaceholder)',
             },
             '.TabIcon--selected': {
-                fill: resolveCssVariable('var(--text)'),
+                fill: resolveCssVariable('var(--text, #181f1c)'),
             },
             '.TabIcon--selected:hover': {
-                fill: resolveCssVariable('var(--text)'),
+                fill: resolveCssVariable('var(--text, #181f1c)'),
             },
             '.TabIcon:hover': {
-                fill: resolveCssVariable('var(--text)'),
+                fill: resolveCssVariable('var(--text, #181f1c)'),
             },
             '.TabLabel': {
                 color: 'var(--colorTextPlaceholder)',
             },
             '.TabLabel:hover': {
-                color: resolveCssVariable('var(--text)'),
+                color: resolveCssVariable('var(--text, #181f1c)'),
             },
             '.TabLabel--selected': {
-                color: resolveCssVariable('var(--text)'),
+                color: resolveCssVariable('var(--text, #181f1c)'),
             },
             '.Tab': {
                 color: secondary,
@@ -113,7 +115,7 @@ export const getStripeElementAppearance = (fontColor, primaryColor, secondaryCol
                 color: 'var(--colorTextPlaceholder)',
             },
             '.Input:focus': {
-                color: resolveCssVariable('var(--text)'),
+                color: resolveCssVariable('var(--text, #181f1c)'),
             },
         },
     };
