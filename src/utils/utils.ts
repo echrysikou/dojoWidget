@@ -56,7 +56,7 @@ export const getWidgetButtonAndBorderColors = (primaryColor: string, secondaryCo
     elemBorderColor = theme?.elementBorderColor ?? WG_DEFAULT_ELEMENT_BORDER;
   }
 
-  return { buttonBgColor, elemBorderColor };
+  return { buttonBgColor: resolveCssVariable(buttonBgColor), elemBorderColor: resolveCssVariable(elemBorderColor) };
 };
 
 export const getStripeWidgetFontColor = (bgColor: string, fontClr: string) => {

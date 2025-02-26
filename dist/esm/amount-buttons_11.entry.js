@@ -2577,7 +2577,7 @@ const getWidgetButtonAndBorderColors = (primaryColor, secondaryColor) => {
         buttonBgColor = (_a = theme === null || theme === void 0 ? void 0 : theme.buttonBgColor) !== null && _a !== void 0 ? _a : WG_DEFAULT_BUTTON_BG;
         elemBorderColor = (_b = theme === null || theme === void 0 ? void 0 : theme.elementBorderColor) !== null && _b !== void 0 ? _b : WG_DEFAULT_ELEMENT_BORDER;
     }
-    return { buttonBgColor, elemBorderColor };
+    return { buttonBgColor: resolveCssVariable(buttonBgColor), elemBorderColor: resolveCssVariable(elemBorderColor) };
 };
 const getStripeWidgetFontColor = (bgColor, fontClr) => {
     return resolveCssVariable(getContrastColor(bgColor, fontClr).isContrastGood ? fontClr : getContrastColor(bgColor).blackOrWhite);

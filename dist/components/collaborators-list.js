@@ -1,4 +1,4 @@
-import { C as CollaboratorsList$1, d as defineCustomElement$1 } from './p-fbf6f5e6.js';
+import { C as CollaboratorsList$1, d as defineCustomElement$1 } from './p-d30a887a.js';
 
 const CollaboratorsList = CollaboratorsList$1;
 const defineCustomElement = defineCustomElement$1;
