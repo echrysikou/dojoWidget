@@ -4,8 +4,8 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 const index = require('./index-49db04a4.js');
 
-const WG_DEFAULT_BUTTON_BG = "var(--common-white)";
-const WG_DEFAULT_ELEMENT_BORDER = "var(--lighter-gray)";
+const WG_DEFAULT_BUTTON_BG = 'var(--common-white, #FFFFFF)';
+const WG_DEFAULT_ELEMENT_BORDER = 'var(--lighter-gray, #e0e0e0 )';
 const predefinedThemes = [
     {
         id: 'primary',
@@ -2543,9 +2543,14 @@ const resolveCssVariable = (cssVar) => {
     if (!cssVar || cssVar === '' || !cssVar.startsWith('var('))
         return cssVar; // Return as-is if not a CSS variable
     try {
-        const variableName = cssVar.substring(4, cssVar.indexOf(')')).trim();
-        const computedStyle = window.getComputedStyle(document.documentElement);
-        return computedStyle.getPropertyValue(variableName).trim();
+        if (cssVar.includes(',')) {
+            return cssVar.split(',')[1].slice(0, -1).trim();
+        }
+        else {
+            const variableName = cssVar.substring(4, cssVar.indexOf(')')).trim();
+            const computedStyle = window.getComputedStyle(document.documentElement);
+            return computedStyle.getPropertyValue(variableName).trim();
+        }
     }
     catch (error) {
         console.error(`Error resolving CSS variable: ${cssVar}`, error);
@@ -2642,7 +2647,7 @@ const getStripeElementAppearance = (fontColor, primaryColor, secondaryColor) => 
         },
     };
 };
-const getContrastColor = (backgroundColor, fontColor = 'var(--text)') => {
+const getContrastColor = (backgroundColor, fontColor = 'var(--text, #181f1c)') => {
     // convert hex color to RGB
     const hexToRgba = (hex) => {
         const hexColor = resolveCssVariable(hex);
@@ -2696,14 +2701,14 @@ const getContrastColor = (backgroundColor, fontColor = 'var(--text)') => {
     return {
         isContrastGood: contrast >= 4.5, // WCAG AA standard
         actualContrast: contrast,
-        blackOrWhite: contrastWithWhite >= contrastWithBlack ? '#FFFFFF' : '#000000',
+        blackOrWhite: contrastWithWhite >= contrastWithBlack ? 'var(--common-white, #ffffff )' : 'var(--common-black, #000000)',
     };
 };
 // Returns a high-contrast "danger" (reddish) color for a given background.
 const getSafeDangerColor = (backgroundColor) => {
     // some reddish colors that could be used:
     const dangerRedColors = [
-        'var(--error-color)',
+        '#f44336',
         '#FF0000',
         '#E60000',
         '#CC0000',
@@ -2734,7 +2739,7 @@ const getSafeDangerColor = (backgroundColor) => {
         '#B22222',
         '#DC143C',
         '#910029',
-        'fc0000',
+        '#fc0000',
     ];
     for (const dangerColor of dangerRedColors) {
         if (getContrastColor(backgroundColor, dangerColor).isContrastGood) {
@@ -2745,7 +2750,7 @@ const getSafeDangerColor = (backgroundColor) => {
     return resolveCssVariable(getContrastColor(backgroundColor).blackOrWhite);
 };
 
-const amountButtonsCss = ":host{--text:#181f1c;--common-white:#ffffff;--common-black:#000000}.select-amount-container{display:flex;flex-direction:column;gap:14px;margin-top:60px}.amount-btns-container{display:flex;flex-direction:row;gap:8px;justify-content:space-between;margin-top:2px}.widgetButton{border-radius:5px;box-shadow:0px 0px 14px 0px rgba(0, 0, 0, 0.05);font-weight:400;width:30%;min-width:64px;display:flex;justify-content:center;align-items:center;font-size:16px;line-height:36px;height:44px;pointer-events:auto;padding-top:1px;padding-left:16px;padding-right:16px;transition:all 0.3s ease-out;letter-spacing:0.2px;text-align:center;text-shadow:none !important;white-space:nowrap;cursor:pointer}";
+const amountButtonsCss = ":host{--text:#181f1c;--common-white:#ffffff;--common-black:#000000;--lighter-gray:#e0e0e0}.select-amount-container{display:flex;flex-direction:column;gap:14px;margin-top:60px}.amount-btns-container{display:flex;flex-direction:row;gap:8px;justify-content:space-between;margin-top:2px}.widgetButton{border-radius:5px;box-shadow:0px 0px 14px 0px rgba(0, 0, 0, 0.05);font-weight:400;width:30%;min-width:64px;display:flex;justify-content:center;align-items:center;font-size:16px;line-height:36px;height:44px;pointer-events:auto;padding-top:1px;padding-left:16px;padding-right:16px;transition:all 0.3s ease-out;letter-spacing:0.2px;text-align:center;text-shadow:none !important;white-space:nowrap;cursor:pointer}";
 const AmountButtonsStyle0 = amountButtonsCss;
 
 const AmountButtons$1 = class {
@@ -2779,7 +2784,7 @@ const AmountButtons$1 = class {
 };
 AmountButtons$1.style = AmountButtonsStyle0;
 
-const amountInputCss = "@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap'); :host{--font-secondary:'Raleway', sans-serif;--text:#181f1c;--common-white:#ffffff}.enter-amount-container{display:flex;flex-direction:column;gap:14px;margin-top:15px}.form-control{width:100%;margin-top:-5px;background-color:var(--common-white, #ffffff);border-radius:5px;box-shadow:0px 0px 14px 0px rgba(0, 0, 0, 0.05);box-sizing:border-box}.input-container{display:flex;align-items:center;border-radius:5px;padding:8px;transition:all 0.3s ease-in-out;box-sizing:border-box}.input-adornment{margin-right:8px;font-size:16px;color:var(--text, #181f1c);line-height:normal;box-sizing:border-box}input{flex:1;border:none;outline:none;font-size:16px;font-family:var(--font-secondary, 'Raleway', sans-serif);font-weight:400;color:var(--text, #181f1c);background:transparent;line-height:normal;box-sizing:border-box}input:focus{border:none;outline:none}.low-amount-error{margin-left:0px;margin-top:6px;font-weight:500}";
+const amountInputCss = "@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap'); :host{--font-secondary:'Raleway', sans-serif;--text:#181f1c;--common-white:#ffffff;--lighter-gray:#e0e0e0}.enter-amount-container{display:flex;flex-direction:column;gap:14px;margin-top:15px}.form-control{width:100%;margin-top:-5px;background-color:var(--common-white, #ffffff);border-radius:5px;box-shadow:0px 0px 14px 0px rgba(0, 0, 0, 0.05);box-sizing:border-box}.input-container{display:flex;align-items:center;border-radius:5px;padding:8px;transition:all 0.3s ease-in-out;box-sizing:border-box}.input-adornment{margin-right:8px;font-size:16px;color:var(--text, #181f1c);line-height:normal;box-sizing:border-box}input{flex:1;border:none;outline:none;font-size:16px;font-family:var(--font-secondary, 'Raleway', sans-serif);font-weight:400;color:var(--text, #181f1c);background:transparent;line-height:normal;box-sizing:border-box}input:focus{border:none;outline:none}.low-amount-error{margin-left:0px;margin-top:6px;font-weight:500}";
 const AmountInputStyle0 = amountInputCss;
 
 const AmountInput = class {
@@ -2902,7 +2907,7 @@ const ButtonWidget = class {
 };
 ButtonWidget.style = ButtonWidgetStyle0;
 
-const TRANSACTION_FEES_PERCENTAGE = "10%";
+const TRANSACTION_FEES_PERCENTAGE = '10%';
 
 const collaboratorsListCss = "@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap'); @import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;500;600;700;800&display=swap'); :host{--font-primary:'Baloo Bhaijaan 2', sans-serif;--font-secondary:'Raleway', sans-serif;--text:#181f1c;--common-white:#ffffff;--common-black:#000000}.collaborators-container{margin-top:60px}.collaborators{display:flex;flex-direction:row;width:100%;margin-top:10px}.collaborator-stack{display:flex;gap:8px;flex-direction:column;justify-content:space-between;align-items:center}.avatar-container{display:flex;justify-content:center;align-items:center;margin-top:3px;position:relative;flex-shrink:0;font-size:1.42857rem;line-height:1;border-radius:50%;overflow:hidden;user-select:none;width:65px;height:65px}.avatar-image{width:100%;height:100%;text-align:center;object-fit:cover;color:transparent;text-indent:10000px;overflow-clip-margin:content-box;overflow:clip;font-size:1.42857rem;line-height:1;user-select:none;text-size-adjust:100%}.avatar-initials{display:flex;justify-content:center;align-items:center;border-radius:50%;width:65px;height:65px}.fee-container{display:flex;justify-content:center;align-items:center;text-align:center;margin-top:10px}";
 const CollaboratorsListStyle0 = collaboratorsListCss;

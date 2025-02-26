@@ -18,9 +18,13 @@ export const resolveCssVariable = (cssVar: string): string => {
   if (!cssVar || cssVar === '' || !cssVar.startsWith('var(')) return cssVar; // Return as-is if not a CSS variable
 
   try {
-    const variableName = cssVar.substring(4, cssVar.indexOf(')')).trim();
-    const computedStyle = window.getComputedStyle(document.documentElement);
-    return computedStyle.getPropertyValue(variableName).trim();
+    if (cssVar.includes(',')) {
+      return cssVar.split(',')[1].slice(0, -1).trim();
+    } else {
+      const variableName = cssVar.substring(4, cssVar.indexOf(')')).trim();
+      const computedStyle = window.getComputedStyle(document.documentElement);
+      return computedStyle.getPropertyValue(variableName).trim();
+    }
   } catch (error) {
     console.error(`Error resolving CSS variable: ${cssVar}`, error);
     return cssVar;
@@ -42,7 +46,7 @@ export const getAvatarInitials = (name: string, surname: string) => {
   }
 };
 
-export const getWidgetButtonAndBorderColors = (primaryColor, secondaryColor) => {
+export const getWidgetButtonAndBorderColors = (primaryColor: string, secondaryColor: string) => {
   let buttonBgColor = WG_DEFAULT_BUTTON_BG;
   let elemBorderColor = WG_DEFAULT_ELEMENT_BORDER;
 
@@ -59,14 +63,14 @@ export const getStripeWidgetFontColor = (bgColor: string, fontClr: string) => {
   return resolveCssVariable(getContrastColor(bgColor, fontClr).isContrastGood ? fontClr : getContrastColor(bgColor).blackOrWhite);
 };
 
-export const getStripeElementAppearance = (fontColor, primaryColor, secondaryColor) => {
+export const getStripeElementAppearance = (fontColor: string, primaryColor: string, secondaryColor: string) => {
   const secondary = resolveCssVariable(secondaryColor);
   const buttonBgColor = getWidgetButtonAndBorderColors(primaryColor, secondaryColor).buttonBgColor;
-  const stripeFontColor =  getStripeWidgetFontColor(buttonBgColor, fontColor)
+  const stripeFontColor = getStripeWidgetFontColor(buttonBgColor, fontColor);
 
   return {
     // https://docs.stripe.com/elements/appearance-api
-    theme: 'stripe' as Appearance["theme"],
+    theme: 'stripe' as Appearance['theme'],
     variables: {
       colorText: resolveCssVariable(fontColor),
       colorPrimary: secondary,
@@ -122,7 +126,7 @@ export const getStripeElementAppearance = (fontColor, primaryColor, secondaryCol
   } as Appearance;
 };
 
-export const getContrastColor = (backgroundColor: string, fontColor = 'var(--text)') => {
+export const getContrastColor = (backgroundColor: string, fontColor = 'var(--text, #181f1c)') => {
   // convert hex color to RGB
   const hexToRgba = (hex: string): { r: number; g: number; b: number; a: number } => {
     const hexColor = resolveCssVariable(hex);
@@ -188,7 +192,7 @@ export const getContrastColor = (backgroundColor: string, fontColor = 'var(--tex
   return {
     isContrastGood: contrast >= 4.5, // WCAG AA standard
     actualContrast: contrast,
-    blackOrWhite: contrastWithWhite >= contrastWithBlack ? '#FFFFFF' : '#000000',
+    blackOrWhite: contrastWithWhite >= contrastWithBlack ? 'var(--common-white, #ffffff )' : 'var(--common-black, #000000)',
   };
 };
 
@@ -196,7 +200,7 @@ export const getContrastColor = (backgroundColor: string, fontColor = 'var(--tex
 export const getSafeDangerColor = (backgroundColor: string): string => {
   // some reddish colors that could be used:
   const dangerRedColors: string[] = [
-    'var(--error-color)',
+    '#f44336',
     '#FF0000',
     '#E60000',
     '#CC0000',
@@ -227,7 +231,7 @@ export const getSafeDangerColor = (backgroundColor: string): string => {
     '#B22222',
     '#DC143C',
     '#910029',
-    'fc0000',
+    '#fc0000',
   ];
 
   for (const dangerColor of dangerRedColors) {

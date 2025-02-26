@@ -1,8 +1,8 @@
 import { IThemeColors } from '../interfaces/interfaces';
 
-export const TRANSACTION_FEES_PERCENTAGE = "10%";
-export const WG_DEFAULT_BUTTON_BG = "var(--common-white)";
-export const WG_DEFAULT_ELEMENT_BORDER = "var(--lighter-gray)";
+export const TRANSACTION_FEES_PERCENTAGE = '10%';
+export const WG_DEFAULT_BUTTON_BG = 'var(--common-white, #FFFFFF)';
+export const WG_DEFAULT_ELEMENT_BORDER = 'var(--lighter-gray, #e0e0e0 )';
 
 export const predefinedThemes: IThemeColors[] = [
   {

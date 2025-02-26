@@ -1,4 +1,4 @@
-import { F as FullWidget$1, d as defineCustomElement$1 } from './p-cfb3a9ab.js';
+import { F as FullWidget$1, d as defineCustomElement$1 } from './p-77055f1e.js';
 
 const FullWidget = FullWidget$1;
 const defineCustomElement = defineCustomElement$1;

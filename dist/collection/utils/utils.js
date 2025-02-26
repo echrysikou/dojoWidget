@@ -14,9 +14,14 @@ export const resolveCssVariable = (cssVar) => {
     if (!cssVar || cssVar === '' || !cssVar.startsWith('var('))
         return cssVar; // Return as-is if not a CSS variable
     try {
-        const variableName = cssVar.substring(4, cssVar.indexOf(')')).trim();
-        const computedStyle = window.getComputedStyle(document.documentElement);
-        return computedStyle.getPropertyValue(variableName).trim();
+        if (cssVar.includes(',')) {
+            return cssVar.split(',')[1].slice(0, -1).trim();
+        }
+        else {
+            const variableName = cssVar.substring(4, cssVar.indexOf(')')).trim();
+            const computedStyle = window.getComputedStyle(document.documentElement);
+            return computedStyle.getPropertyValue(variableName).trim();
+        }
     }
     catch (error) {
         console.error(`Error resolving CSS variable: ${cssVar}`, error);
@@ -113,7 +118,7 @@ export const getStripeElementAppearance = (fontColor, primaryColor, secondaryCol
         },
     };
 };
-export const getContrastColor = (backgroundColor, fontColor = 'var(--text)') => {
+export const getContrastColor = (backgroundColor, fontColor = 'var(--text, #181f1c)') => {
     // convert hex color to RGB
     const hexToRgba = (hex) => {
         const hexColor = resolveCssVariable(hex);
@@ -167,14 +172,14 @@ export const getContrastColor = (backgroundColor, fontColor = 'var(--text)') => 
     return {
         isContrastGood: contrast >= 4.5, // WCAG AA standard
         actualContrast: contrast,
-        blackOrWhite: contrastWithWhite >= contrastWithBlack ? '#FFFFFF' : '#000000',
+        blackOrWhite: contrastWithWhite >= contrastWithBlack ? 'var(--common-white, #ffffff )' : 'var(--common-black, #000000)',
     };
 };
 // Returns a high-contrast "danger" (reddish) color for a given background.
 export const getSafeDangerColor = (backgroundColor) => {
     // some reddish colors that could be used:
     const dangerRedColors = [
-        'var(--error-color)',
+        '#f44336',
         '#FF0000',
         '#E60000',
         '#CC0000',
@@ -205,7 +210,7 @@ export const getSafeDangerColor = (backgroundColor) => {
         '#B22222',
         '#DC143C',
         '#910029',
-        'fc0000',
+        '#fc0000',
     ];
     for (const dangerColor of dangerRedColors) {
         if (getContrastColor(backgroundColor, dangerColor).isContrastGood) {

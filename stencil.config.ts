@@ -35,19 +35,19 @@ export const config: Config = {
       serviceWorker: null, // disable service workers
     },
   ],
-  rollupPlugins: {
-    // copy assets to dist directory so they can be rendered when the component is embedded to another app
-    after: [
-      copy({
-        targets: [
-          {
-            src: 'src/**/*.{jpg,png,ico,svg}',
-            dest: 'dist/assets',
-          },
-        ],
-      }),
-    ],
-  },
+  // rollupPlugins: {
+  //   // copy assets to dist directory so they can be rendered when the component is embedded to another app
+  //   after: [
+  //     copy({
+  //       targets: [
+  //         {
+  //           src: 'src/**/*.{jpg,png,ico,svg}',
+  //           dest: 'dist/assets',
+  //         },
+  //       ],
+  //     }),
+  //   ],
+  // },
   testing: {
     browserHeadless: 'new',
   },
