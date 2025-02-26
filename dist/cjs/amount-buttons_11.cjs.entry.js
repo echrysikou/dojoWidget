@@ -6890,7 +6890,7 @@ async function createPaymentIntent({ amount, elementId }) {
     return response.data;
 }
 
-const stripePaymentCss = ".stripe-container{margin-top:50px}.stripe-form{padding:16px;margin:18px 0px}.stripe-pay-button{width:100%;margin-top:20px;border-radius:5px;border:none;cursor:pointer}.stripe-pay-button:disabled{opacity:0.8;pointer-events:auto;cursor:not-allowed}#error-message{margin-top:6px}.stripe-error{margin-left:0px;font-weight:500;font-size:14px}";
+const stripePaymentCss = ".stripe-container{margin-top:50px}.stripe-form{padding:16px;margin:18px 0px}.stripe-pay-button{width:100%;height:44px;margin-top:20px;border-radius:5px;border:none;cursor:pointer}.stripe-pay-button:disabled{opacity:0.8;pointer-events:auto;cursor:not-allowed}#error-message{margin-top:6px}.stripe-error{margin-left:0px;font-weight:500;font-size:14px}";
 const StripePaymentStyle0 = stripePaymentCss;
 
 const StripePayment = class {

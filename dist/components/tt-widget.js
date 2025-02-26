@@ -1,5 +1,5 @@
 import { p as proxyCustomElement, H, h, c as Host } from './p-2189282e.js';
-import { d as defineCustomElement$2, f as fetchWidgetDetails } from './p-23c29fdf.js';
+import { d as defineCustomElement$2, f as fetchWidgetDetails } from './p-374f0895.js';
 import { s as state } from './p-703964f3.js';
 import { s as setLanguage, i as instance } from './p-032d2676.js';
 import { d as defineCustomElement$b } from './p-132e8c46.js';
@@ -8,7 +8,7 @@ import { d as defineCustomElement$9 } from './p-00db486c.js';
 import { d as defineCustomElement$8 } from './p-9c5a097d.js';
 import { d as defineCustomElement$7 } from './p-d5700019.js';
 import { d as defineCustomElement$6 } from './p-44bbedf8.js';
-import { d as defineCustomElement$5 } from './p-50ef3a64.js';
+import { d as defineCustomElement$5 } from './p-4575ed29.js';
 import { d as defineCustomElement$4 } from './p-9a1c149e.js';
 import { d as defineCustomElement$3 } from './p-80fb100a.js';
 

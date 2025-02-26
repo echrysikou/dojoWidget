@@ -6,7 +6,7 @@ import { d as defineCustomElement$5 } from './p-00db486c.js';
 import { d as defineCustomElement$4 } from './p-9c5a097d.js';
 import { d as defineCustomElement$3 } from './p-44bbedf8.js';
 import { d as defineCustomElement$2 } from './p-80fb100a.js';
-import { d as defineCustomElement$1 } from './p-23c29fdf.js';
+import { d as defineCustomElement$1 } from './p-374f0895.js';
 
 const fullWidgetCss = ".widget-container{padding:20px 24px;min-width:min-content;max-width:650px;filter:drop-shadow(0px 0px 14px rgba(0, 0, 0, 0.05))}.taktak-logo{height:60px;width:118px;margin-top:-5px;margin-left:-8px}";
 const FullWidgetStyle0 = fullWidgetCss;
@@ -78,4 +78,4 @@ defineCustomElement();
 
 export { FullWidget as F, defineCustomElement as d };
 
-//# sourceMappingURL=p-50ef3a64.js.map
+//# sourceMappingURL=p-4575ed29.js.map
