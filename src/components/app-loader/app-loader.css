@@ -1,4 +1,8 @@
-.root {
+:host {
+    --primary: #c02b28;
+}
+
+.loader-root {
     display: flex;
     justify-content: center;
     align-items: center;

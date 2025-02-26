@@ -2692,7 +2692,7 @@ const getContrastColor = (backgroundColor, fontColor = 'var(--text)') => {
     return {
         isContrastGood: contrast >= 4.5, // WCAG AA standard
         actualContrast: contrast,
-        blackOrWhite: contrastWithWhite >= contrastWithBlack ? 'var(--common-white)' : 'var(--common-black)',
+        blackOrWhite: contrastWithWhite >= contrastWithBlack ? '#FFFFFF' : '#000000',
     };
 };
 // Returns a high-contrast "danger" (reddish) color for a given background.
@@ -2741,7 +2741,7 @@ const getSafeDangerColor = (backgroundColor) => {
     return resolveCssVariable(getContrastColor(backgroundColor).blackOrWhite);
 };
 
-const amountButtonsCss = ".select-amount-container{display:flex;flex-direction:column;gap:14px;margin-top:60px}.amount-btns-container{display:flex;flex-direction:row;gap:8px;justify-content:space-between;margin-top:2px}.widgetButton{border-radius:5px;box-shadow:0px 0px 14px 0px rgba(0, 0, 0, 0.05);font-weight:400;width:30%;min-width:64px;display:flex;justify-content:center;align-items:center;font-size:16px;line-height:36px;height:44px;pointer-events:auto;padding-top:1px;padding-left:16px;padding-right:16px;transition:all 0.3s ease-out;letter-spacing:0.2px;text-align:center;text-shadow:none !important;white-space:nowrap;cursor:pointer}";
+const amountButtonsCss = ":host{--text:#181f1c;--common-white:#ffffff;--common-black:#000000}.select-amount-container{display:flex;flex-direction:column;gap:14px;margin-top:60px}.amount-btns-container{display:flex;flex-direction:row;gap:8px;justify-content:space-between;margin-top:2px}.widgetButton{border-radius:5px;box-shadow:0px 0px 14px 0px rgba(0, 0, 0, 0.05);font-weight:400;width:30%;min-width:64px;display:flex;justify-content:center;align-items:center;font-size:16px;line-height:36px;height:44px;pointer-events:auto;padding-top:1px;padding-left:16px;padding-right:16px;transition:all 0.3s ease-out;letter-spacing:0.2px;text-align:center;text-shadow:none !important;white-space:nowrap;cursor:pointer}";
 const AmountButtonsStyle0 = amountButtonsCss;
 
 const AmountButtons$1 = class {
@@ -2757,9 +2757,9 @@ const AmountButtons$1 = class {
         const updateAmount = (amount) => {
             state.stripe = { paymentElementIntentAmount: amount * 100, amountIsValid: true }; //in cents
         };
-        return (h("div", { key: 'ec36cfd3cc705426ed7034323b866a34deb9928f', class: "select-amount-container" }, h("app-typography", { key: '709a8ecb805342a6e6d7b58225703e9d26862809', variant: "secondaryP", fontFamily: font, styleProps: {
+        return (h("div", { key: 'e871ca9262c4a36b0a7ff905efa8cbee82b6ca55', class: "select-amount-container" }, h("app-typography", { key: '9b62bba7a12f856488183273185914d73d53eca2', variant: "secondaryP", fontFamily: font, styleProps: {
                 fontWeight: '700',
-            } }, instance.t('selectAmount')), h("div", { key: '7302cca9417f299df3555d86943ec4d17b7f5151', class: "amount-btns-container" }, btnAmounts.map(amount => {
+            } }, instance.t('selectAmount')), h("div", { key: '96631f545428fe779e50a756eebbed4fd7b73589', class: "amount-btns-container" }, btnAmounts.map(amount => {
             const isHovered = this.hoveredButton === amount;
             const currentBg = isHovered ? secondaryColor : buttonBgColor;
             const currentBorder = isHovered ? secondaryColor : elemBorderColor;
@@ -2775,7 +2775,7 @@ const AmountButtons$1 = class {
 };
 AmountButtons$1.style = AmountButtonsStyle0;
 
-const amountInputCss = ".enter-amount-container{display:flex;flex-direction:column;gap:14px;margin-top:15px}.form-control{width:100%;margin-top:-5px;background-color:var(--common-white);border-radius:5px;box-shadow:0px 0px 14px 0px rgba(0, 0, 0, 0.05);box-sizing:border-box}.input-container{display:flex;align-items:center;border-radius:5px;padding:8px;transition:all 0.3s ease-in-out;box-sizing:border-box}.input-adornment{margin-right:8px;font-size:16px;color:var(--text);line-height:normal;box-sizing:border-box}input{flex:1;border:none;outline:none;font-size:16px;font-family:var(--font-secondary);font-weight:400;color:var(--text);background:transparent;line-height:normal;box-sizing:border-box}input:focus{border:none;outline:none}.low-amount-error{margin-left:0px;margin-top:6px;font-weight:500}";
+const amountInputCss = "@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap'); :host{--font-secondary:'Raleway', sans-serif;--text:#181f1c;--common-white:#ffffff}.enter-amount-container{display:flex;flex-direction:column;gap:14px;margin-top:15px}.form-control{width:100%;margin-top:-5px;background-color:var(--common-white);border-radius:5px;box-shadow:0px 0px 14px 0px rgba(0, 0, 0, 0.05);box-sizing:border-box}.input-container{display:flex;align-items:center;border-radius:5px;padding:8px;transition:all 0.3s ease-in-out;box-sizing:border-box}.input-adornment{margin-right:8px;font-size:16px;color:var(--text);line-height:normal;box-sizing:border-box}input{flex:1;border:none;outline:none;font-size:16px;font-family:var(--font-secondary);font-weight:400;color:var(--text);background:transparent;line-height:normal;box-sizing:border-box}input:focus{border:none;outline:none}.low-amount-error{margin-left:0px;margin-top:6px;font-weight:500}";
 const AmountInputStyle0 = amountInputCss;
 
 const AmountInput = class {
@@ -2836,7 +2836,7 @@ const AmountInput = class {
 };
 AmountInput.style = AmountInputStyle0;
 
-const appLoaderCss = ".root{display:flex;justify-content:center;align-items:center;min-height:100%}.circular-progress{border:3px solid;border-radius:50%;animation:spin 1s linear infinite}@keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}";
+const appLoaderCss = ":host{--primary:#c02b28}.loader-root{display:flex;justify-content:center;align-items:center;min-height:100%}.circular-progress{border:3px solid;border-radius:50%;animation:spin 1s linear infinite}@keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}";
 const AppLoaderStyle0 = appLoaderCss;
 
 const AppLoader = class {
@@ -2846,7 +2846,7 @@ const AppLoader = class {
         this.color = 'var(--primary)';
     }
     render() {
-        return (h("div", { key: '1cafa770da1b6701f934a8b4233271bfa828b0cb', class: "root" }, h("div", { key: '9b1a60ff7c0c002397c6e6738089d2b3d1dfead8', class: "circular-progress", style: {
+        return (h("div", { key: 'f70c9a25ed99c648327e56d867713428dd46b74b', class: "loader-root" }, h("div", { key: 'eaba45ad983825410ead89511084039e8a1f1caa', class: "circular-progress", style: {
                 width: `${this.height}px`,
                 height: `${this.height}px`,
                 borderColor: `${this.color} ${this.color} ${this.color} transparent`,
@@ -2855,7 +2855,7 @@ const AppLoader = class {
 };
 AppLoader.style = AppLoaderStyle0;
 
-const appTypographyCss = ".typography{margin:0px}.typography.h0{font-size:72px;font-weight:600;line-height:normal}.typography.h1{font-size:48px;font-weight:600;line-height:normal}.typography.h2{font-size:32px;font-weight:600;line-height:normal}.typography.h3{font-size:24px;font-weight:600;line-height:normal}.typography.secondaryP{font-size:16px;line-height:normal;font-weight:400}.typography.secondaryCaption{font-family:var(--font-secondary);font-size:14px;line-height:20px;font-weight:600;letter-spacing:0.4px}.typography.secondaryMessage{font-family:var(--font-secondary);font-size:12px;line-height:20px;font-weight:400;letter-spacing:0.4px}.typography.body1{font-size:16px;line-height:normal;font-weight:400}";
+const appTypographyCss = "@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;500;600;700;800&display=swap'); @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap'); :host{--font-primary:'Baloo Bhaijaan 2', sans-serif;--font-secondary:'Raleway', sans-serif;--primary:#c02b28;--secondary:#fcbd10;--accent:#2b3a67;--text:#181f1c;--error-color:#f44336;--common-white:#ffffff;--common-black:#000000;--black-087:rgba(0, 0, 0, 0.87);--light:#fef7e2}.typography{margin:0px}.typography.h0{font-size:72px;font-weight:600;line-height:normal}.typography.h1{font-size:48px;font-weight:600;line-height:normal}.typography.h2{font-size:32px;font-weight:600;line-height:normal}.typography.h3{font-size:24px;font-weight:600;line-height:normal}.typography.secondaryP{font-size:16px;line-height:normal;font-weight:400}.typography.secondaryCaption{font-family:var(--font-secondary);font-size:14px;line-height:20px;font-weight:600;letter-spacing:0.4px}.typography.secondaryMessage{font-family:var(--font-secondary);font-size:12px;line-height:20px;font-weight:400;letter-spacing:0.4px}.typography.body1{font-size:16px;line-height:normal;font-weight:400}";
 const AppTypographyStyle0 = appTypographyCss;
 
 const Typography = class {
@@ -2873,7 +2873,7 @@ const Typography = class {
 };
 Typography.style = AppTypographyStyle0;
 
-const buttonWidgetCss = ".donate-button{display:flex;justify-content:flex-start;align-items:center;border-width:3px;border-style:solid;font-size:16px;line-height:16px;height:44px;pointer-events:auto;font-weight:700;padding-top:1px;padding-left:16px;padding-right:16px;width:fit-content;border-radius:50px;transition:all 0.3s ease-out;letter-spacing:0.2px;text-align:center;text-shadow:none !important;white-space:nowrap;cursor:pointer}.taktak-icon{display:flex;align-items:center;justify-content:center;border-radius:50px;width:38px;height:38px;margin-left:-20px;margin-top:0px;border-width:3px;border-style:solid;border-color:var(--primary) !important;background:var(--light);color:var(--primary)}.t-icon-image{border-radius:50px;width:38px;height:38px}.button-text{font-size:16px;padding-left:8px}";
+const buttonWidgetCss = ":host{--primary:#c02b28;--secondary:#fcbd10;--accent:#2b3a67;--text:#181f1c;--light:#fef7e2;--error-color:#f44336;--common-white:#ffffff;--common-black:#000000;--black-087:rgba(0, 0, 0, 0.87)}.donate-button{display:flex;justify-content:flex-start;align-items:center;border-width:3px;border-style:solid;font-size:16px;line-height:16px;height:44px;pointer-events:auto;font-weight:700;padding-top:1px;padding-left:16px;padding-right:16px;width:fit-content;border-radius:50px;transition:all 0.3s ease-out;letter-spacing:0.2px;text-align:center;text-shadow:none !important;white-space:nowrap;cursor:pointer}.taktak-icon{display:flex;align-items:center;justify-content:center;border-radius:50px;width:38px;height:38px;margin-left:-20px;margin-top:0px;border-width:3px;border-style:solid;border-color:var(--primary) !important;background:var(--light);color:var(--primary)}.t-icon-image{border-radius:50px;width:38px;height:38px}.button-text{font-size:16px;padding-left:8px}";
 const ButtonWidgetStyle0 = buttonWidgetCss;
 
 const ButtonWidget = class {
@@ -2900,7 +2900,7 @@ ButtonWidget.style = ButtonWidgetStyle0;
 
 const TRANSACTION_FEES_PERCENTAGE = "10%";
 
-const collaboratorsListCss = ".collaborators-container{margin-top:60px}.collaborators{display:flex;flex-direction:row;width:100%;margin-top:10px}.collaborator-stack{display:flex;gap:8px;flex-direction:column;justify-content:space-between;align-items:center}.avatar-container{display:flex;justify-content:center;align-items:center;margin-top:3px;position:relative;flex-shrink:0;font-size:1.42857rem;line-height:1;border-radius:50%;overflow:hidden;user-select:none;width:65px;height:65px}.avatar-image{width:100%;height:100%;text-align:center;object-fit:cover;color:transparent;text-indent:10000px;overflow-clip-margin:content-box;overflow:clip;font-size:1.42857rem;line-height:1;user-select:none;text-size-adjust:100%}.avatar-initials{display:flex;justify-content:center;align-items:center;border-radius:50%;width:65px;height:65px}.fee-container{display:flex;justify-content:center;align-items:center;text-align:center;margin-top:10px}";
+const collaboratorsListCss = "@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap'); @import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;500;600;700;800&display=swap'); :host{--font-primary:'Baloo Bhaijaan 2', sans-serif;--font-secondary:'Raleway', sans-serif;--text:#181f1c;--common-white:#ffffff;--common-black:#000000}.collaborators-container{margin-top:60px}.collaborators{display:flex;flex-direction:row;width:100%;margin-top:10px}.collaborator-stack{display:flex;gap:8px;flex-direction:column;justify-content:space-between;align-items:center}.avatar-container{display:flex;justify-content:center;align-items:center;margin-top:3px;position:relative;flex-shrink:0;font-size:1.42857rem;line-height:1;border-radius:50%;overflow:hidden;user-select:none;width:65px;height:65px}.avatar-image{width:100%;height:100%;text-align:center;object-fit:cover;color:transparent;text-indent:10000px;overflow-clip-margin:content-box;overflow:clip;font-size:1.42857rem;line-height:1;user-select:none;text-size-adjust:100%}.avatar-initials{display:flex;justify-content:center;align-items:center;border-radius:50%;width:65px;height:65px}.fee-container{display:flex;justify-content:center;align-items:center;text-align:center;margin-top:10px}";
 const CollaboratorsListStyle0 = collaboratorsListCss;
 
 const CollaboratorsList = class {
@@ -6886,7 +6886,7 @@ async function createPaymentIntent({ amount, elementId }) {
     return response.data;
 }
 
-const stripePaymentCss = ".stripe-container{margin-top:50px}.stripe-form{padding:16px;margin:18px 0px}.stripe-pay-button{width:100%;height:44px;margin-top:20px;border-radius:5px;border:none;cursor:pointer}.stripe-pay-button:disabled{opacity:0.8;pointer-events:auto;cursor:not-allowed}#error-message{margin-top:6px}.stripe-error{margin-left:0px;font-weight:500;font-size:14px}";
+const stripePaymentCss = ":host{--text:#181f1c;--common-white:#ffffff;--common-black:#000000}.stripe-container{margin-top:50px}.stripe-form{padding:16px;margin:18px 0px}.stripe-pay-button{width:100%;height:44px;margin-top:20px;border-radius:5px;border:none;cursor:pointer}.stripe-pay-button:disabled{opacity:0.8;pointer-events:auto;cursor:not-allowed}#error-message{margin-top:6px}.stripe-error{margin-left:0px;font-weight:500;font-size:14px}";
 const StripePaymentStyle0 = stripePaymentCss;
 
 const StripePayment = class {

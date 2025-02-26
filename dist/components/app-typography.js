@@ -1,4 +1,4 @@
-import { T as Typography, d as defineCustomElement$1 } from './p-9c5a097d.js';
+import { T as Typography, d as defineCustomElement$1 } from './p-1eb21f75.js';
 
 const AppTypography = Typography;
 const defineCustomElement = defineCustomElement$1;

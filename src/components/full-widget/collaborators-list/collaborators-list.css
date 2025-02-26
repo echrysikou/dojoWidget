@@ -1,7 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;500;600;700;800&display=swap');
+
+
+:host {
+    --font-primary: 'Baloo Bhaijaan 2', sans-serif;
+    --font-secondary: 'Raleway', sans-serif;    
+    --text: #181f1c;
+    --common-white: #ffffff;
+    --common-black: #000000;
+}
+
 .collaborators-container {
     margin-top: 60px;
 }
-
 
 .collaborators {
     display: flex;

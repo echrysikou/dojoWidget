@@ -6,7 +6,7 @@ import { getContrastColor, getWidgetButtonAndBorderColors } from '@src/utils/uti
 @Component({
   tag: 'amount-buttons',
   styleUrl: 'amount-buttons.css',
-  shadow: true,
+  shadow: false,
 })
 export class AmountButtons {
   @State() hoveredButton: number | null = null; // Track which button is hovered

@@ -5,7 +5,7 @@ export class AppLoader {
         this.color = 'var(--primary)';
     }
     render() {
-        return (h("div", { key: '1cafa770da1b6701f934a8b4233271bfa828b0cb', class: "root" }, h("div", { key: '9b1a60ff7c0c002397c6e6738089d2b3d1dfead8', class: "circular-progress", style: {
+        return (h("div", { key: 'f70c9a25ed99c648327e56d867713428dd46b74b', class: "loader-root" }, h("div", { key: 'eaba45ad983825410ead89511084039e8a1f1caa', class: "circular-progress", style: {
                 width: `${this.height}px`,
                 height: `${this.height}px`,
                 borderColor: `${this.color} ${this.color} ${this.color} transparent`,

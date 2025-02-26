@@ -11,7 +11,7 @@ export class AppLoader {
 
   render() {
     return (
-      <div class="root">
+      <div class="loader-root">
         <div
           class="circular-progress"
           style={{

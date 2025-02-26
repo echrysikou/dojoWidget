@@ -1,3 +1,17 @@
+
+:host {
+    --primary: #c02b28;
+    --secondary: #fcbd10;
+    --accent: #2b3a67;
+    --text: #181f1c;
+    --light: #fef7e2;
+    --error-color: #f44336;
+    --common-white: #ffffff;
+    --common-black: #000000;
+    --black-087: rgba(0, 0, 0, 0.87);
+}
+
+
 .donate-button {
   display: flex;
   justify-content: flex-start;

@@ -14,9 +14,9 @@ export class AmountButtons {
         const updateAmount = (amount) => {
             state.stripe = { paymentElementIntentAmount: amount * 100, amountIsValid: true }; //in cents
         };
-        return (h("div", { key: 'ec36cfd3cc705426ed7034323b866a34deb9928f', class: "select-amount-container" }, h("app-typography", { key: '709a8ecb805342a6e6d7b58225703e9d26862809', variant: "secondaryP", fontFamily: font, styleProps: {
+        return (h("div", { key: 'e871ca9262c4a36b0a7ff905efa8cbee82b6ca55', class: "select-amount-container" }, h("app-typography", { key: '9b62bba7a12f856488183273185914d73d53eca2', variant: "secondaryP", fontFamily: font, styleProps: {
                 fontWeight: '700',
-            } }, i18n.t('selectAmount')), h("div", { key: '7302cca9417f299df3555d86943ec4d17b7f5151', class: "amount-btns-container" }, btnAmounts.map(amount => {
+            } }, i18n.t('selectAmount')), h("div", { key: '96631f545428fe779e50a756eebbed4fd7b73589', class: "amount-btns-container" }, btnAmounts.map(amount => {
             const isHovered = this.hoveredButton === amount;
             const currentBg = isHovered ? secondaryColor : buttonBgColor;
             const currentBorder = isHovered ? secondaryColor : elemBorderColor;
@@ -30,7 +30,6 @@ export class AmountButtons {
         }))));
     }
     static get is() { return "amount-buttons"; }
-    static get encapsulation() { return "shadow"; }
     static get originalStyleUrls() {
         return {
             "$": ["amount-buttons.css"]

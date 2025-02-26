@@ -167,7 +167,7 @@ export const getContrastColor = (backgroundColor, fontColor = 'var(--text)') => 
     return {
         isContrastGood: contrast >= 4.5, // WCAG AA standard
         actualContrast: contrast,
-        blackOrWhite: contrastWithWhite >= contrastWithBlack ? 'var(--common-white)' : 'var(--common-black)',
+        blackOrWhite: contrastWithWhite >= contrastWithBlack ? '#FFFFFF' : '#000000',
     };
 };
 // Returns a high-contrast "danger" (reddish) color for a given background.

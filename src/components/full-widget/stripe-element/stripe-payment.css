@@ -1,3 +1,11 @@
+
+
+:host {
+    --text: #181f1c;
+    --common-white: #ffffff;
+    --common-black: #000000;
+}
+
 .stripe-container {
     margin-top: 50px;
 }

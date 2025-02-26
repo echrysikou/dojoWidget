@@ -188,7 +188,7 @@ export const getContrastColor = (backgroundColor: string, fontColor = 'var(--tex
   return {
     isContrastGood: contrast >= 4.5, // WCAG AA standard
     actualContrast: contrast,
-    blackOrWhite: contrastWithWhite >= contrastWithBlack ? 'var(--common-white)' : 'var(--common-black)',
+    blackOrWhite: contrastWithWhite >= contrastWithBlack ? '#FFFFFF' : '#000000',
   };
 };
 
