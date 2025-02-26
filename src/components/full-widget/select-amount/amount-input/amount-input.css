@@ -16,7 +16,7 @@
 .form-control {
     width: 100%;
     margin-top: -5px;
-    background-color: var(--common-white);
+    background-color: var(--common-white, #ffffff);
     border-radius: 5px;
     box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.05);
     box-sizing: border-box;
@@ -34,7 +34,7 @@
 .input-adornment {
     margin-right: 8px;
     font-size: 16px;
-    color: var(--text);
+    color: var(--text, #181f1c);
     line-height: normal;
     box-sizing: border-box;
 }
@@ -44,9 +44,9 @@ input {
     border: none;
     outline: none;
     font-size: 16px;
-    font-family: var(--font-secondary);
+    font-family: var(--font-secondary, 'Raleway', sans-serif);
     font-weight: 400;
-    color: var(--text);
+    color: var(--text, #181f1c);
     background: transparent;
     line-height: normal;
     box-sizing: border-box;
