@@ -1,5 +1,5 @@
 import { Component, Env, h, Host } from '@stencil/core';
-import { state } from '../../store/store';
+import { state } from '@src/store/store';
 
 @Component({
   tag: 'button-widget',
@@ -28,7 +28,7 @@ export class ButtonWidget {
           onClick={this.handleClick}
         >
           <span class="taktak-icon">
-            <img src={imageSrc} class="t-icon-image" />
+            <img src={imageSrc} alt="Taktak Icon" class="t-icon-image" />
           </span>
           <span class="button-text">{state.widgetDetails.label}</span>
         </button>

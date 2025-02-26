@@ -27,6 +27,14 @@ graph TD;
   tt-widget --> full-widget
   tt-widget --> button-widget
   tt-widget --> qr-code-widget
+  full-widget --> app-typography
+  full-widget --> select-amount
+  full-widget --> collaborators-list
+  select-amount --> amount-buttons
+  select-amount --> amount-input
+  amount-buttons --> app-typography
+  amount-input --> app-typography
+  collaborators-list --> app-typography
   style tt-widget fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

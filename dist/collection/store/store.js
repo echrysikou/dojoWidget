@@ -16,9 +16,9 @@ const { state, onChange } = createStore({
         type: 'BT',
         collaborators: [],
     },
-});
-onChange('widgetDetails', value => {
-    console.log('elena User changed to', value, state.widgetDetails);
+    stripe: {
+        paymentElementIntentAmount: 100,
+    },
 });
 // Export state and onChange for use in components
 export { state, onChange };

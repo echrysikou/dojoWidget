@@ -1,4 +1,4 @@
-import { IWidgetDetails } from '../../interfaces/interfaces';
+import { IWidgetDetails } from "../../interfaces/interfaces";
 export declare class WidgetSelector {
     wId: string;
     language: string;

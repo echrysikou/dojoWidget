@@ -6,12 +6,26 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface AmountButtons {
+    }
+    interface AmountInput {
+        "maxDecimals": number;
+    }
+    interface AppTypography {
+        "fontFamily": string;
+        "styleProps": {};
+        "variant": 'h1' | 'h2' | 'h3' | 'secondaryP' | 'secondaryCaption' | 'secondaryMessage' | 'body1';
+    }
     interface ButtonWidget {
+    }
+    interface CollaboratorsList {
     }
     interface FullWidget {
     }
     interface QrCodeWidget {
         "wId": string;
+    }
+    interface SelectAmount {
     }
     interface TtWidget {
         "language": string;
@@ -19,11 +33,35 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLAmountButtonsElement extends Components.AmountButtons, HTMLStencilElement {
+    }
+    var HTMLAmountButtonsElement: {
+        prototype: HTMLAmountButtonsElement;
+        new (): HTMLAmountButtonsElement;
+    };
+    interface HTMLAmountInputElement extends Components.AmountInput, HTMLStencilElement {
+    }
+    var HTMLAmountInputElement: {
+        prototype: HTMLAmountInputElement;
+        new (): HTMLAmountInputElement;
+    };
+    interface HTMLAppTypographyElement extends Components.AppTypography, HTMLStencilElement {
+    }
+    var HTMLAppTypographyElement: {
+        prototype: HTMLAppTypographyElement;
+        new (): HTMLAppTypographyElement;
+    };
     interface HTMLButtonWidgetElement extends Components.ButtonWidget, HTMLStencilElement {
     }
     var HTMLButtonWidgetElement: {
         prototype: HTMLButtonWidgetElement;
         new (): HTMLButtonWidgetElement;
+    };
+    interface HTMLCollaboratorsListElement extends Components.CollaboratorsList, HTMLStencilElement {
+    }
+    var HTMLCollaboratorsListElement: {
+        prototype: HTMLCollaboratorsListElement;
+        new (): HTMLCollaboratorsListElement;
     };
     interface HTMLFullWidgetElement extends Components.FullWidget, HTMLStencilElement {
     }
@@ -37,6 +75,12 @@ declare global {
         prototype: HTMLQrCodeWidgetElement;
         new (): HTMLQrCodeWidgetElement;
     };
+    interface HTMLSelectAmountElement extends Components.SelectAmount, HTMLStencilElement {
+    }
+    var HTMLSelectAmountElement: {
+        prototype: HTMLSelectAmountElement;
+        new (): HTMLSelectAmountElement;
+    };
     interface HTMLTtWidgetElement extends Components.TtWidget, HTMLStencilElement {
     }
     var HTMLTtWidgetElement: {
@@ -44,28 +88,52 @@ declare global {
         new (): HTMLTtWidgetElement;
     };
     interface HTMLElementTagNameMap {
+        "amount-buttons": HTMLAmountButtonsElement;
+        "amount-input": HTMLAmountInputElement;
+        "app-typography": HTMLAppTypographyElement;
         "button-widget": HTMLButtonWidgetElement;
+        "collaborators-list": HTMLCollaboratorsListElement;
         "full-widget": HTMLFullWidgetElement;
         "qr-code-widget": HTMLQrCodeWidgetElement;
+        "select-amount": HTMLSelectAmountElement;
         "tt-widget": HTMLTtWidgetElement;
     }
 }
 declare namespace LocalJSX {
+    interface AmountButtons {
+    }
+    interface AmountInput {
+        "maxDecimals"?: number;
+    }
+    interface AppTypography {
+        "fontFamily"?: string;
+        "styleProps"?: {};
+        "variant"?: 'h1' | 'h2' | 'h3' | 'secondaryP' | 'secondaryCaption' | 'secondaryMessage' | 'body1';
+    }
     interface ButtonWidget {
+    }
+    interface CollaboratorsList {
     }
     interface FullWidget {
     }
     interface QrCodeWidget {
         "wId"?: string;
     }
+    interface SelectAmount {
+    }
     interface TtWidget {
         "language"?: string;
         "wId"?: string;
     }
     interface IntrinsicElements {
+        "amount-buttons": AmountButtons;
+        "amount-input": AmountInput;
+        "app-typography": AppTypography;
         "button-widget": ButtonWidget;
+        "collaborators-list": CollaboratorsList;
         "full-widget": FullWidget;
         "qr-code-widget": QrCodeWidget;
+        "select-amount": SelectAmount;
         "tt-widget": TtWidget;
     }
 }
@@ -73,9 +141,14 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "amount-buttons": LocalJSX.AmountButtons & JSXBase.HTMLAttributes<HTMLAmountButtonsElement>;
+            "amount-input": LocalJSX.AmountInput & JSXBase.HTMLAttributes<HTMLAmountInputElement>;
+            "app-typography": LocalJSX.AppTypography & JSXBase.HTMLAttributes<HTMLAppTypographyElement>;
             "button-widget": LocalJSX.ButtonWidget & JSXBase.HTMLAttributes<HTMLButtonWidgetElement>;
+            "collaborators-list": LocalJSX.CollaboratorsList & JSXBase.HTMLAttributes<HTMLCollaboratorsListElement>;
             "full-widget": LocalJSX.FullWidget & JSXBase.HTMLAttributes<HTMLFullWidgetElement>;
             "qr-code-widget": LocalJSX.QrCodeWidget & JSXBase.HTMLAttributes<HTMLQrCodeWidgetElement>;
+            "select-amount": LocalJSX.SelectAmount & JSXBase.HTMLAttributes<HTMLSelectAmountElement>;
             "tt-widget": LocalJSX.TtWidget & JSXBase.HTMLAttributes<HTMLTtWidgetElement>;
         }
     }

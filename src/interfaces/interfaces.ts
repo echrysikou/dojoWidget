@@ -4,6 +4,7 @@ export type SupportedLanguages = 'en' | 'fr';
 export interface IState {
   language: SupportedLanguages;
   widgetDetails: IWidgetDetails;
+  stripe: IStripeElement;
 }
 export interface ICollaborator {
   id: string;
@@ -24,4 +25,31 @@ export interface IWidgetDetails {
   createdAt?: string;
   type: WidgetType;
   collaborators: ICollaborator[];
+}
+
+export interface IThemeColors {
+  id: string;
+  colors: string[];
+  buttonBgColor?: string;
+  elementBorderColor?: string;
+  secondaryColor?: string;
+}
+
+export interface IStripeElement {
+  paymentElementIntentAmount: number;
+}
+
+export interface IUserProfile {
+  name: string;
+  surname: string;
+  individual: boolean;
+  headline: string;
+  image: string;
+}
+
+export interface ICollaborator {
+  id: string;
+  account: string | null | undefined; // stripe account id
+  share?: number;
+  profile?: IUserProfile;
 }

@@ -1,5 +1,9 @@
 {
   "compilerOptions": {
+    "baseUrl": ".", // Base directory for resolving modules
+    "paths": {
+      "@src/*": ["src/*"],
+    },
     "allowSyntheticDefaultImports": true,
     "allowUnreachableCode": false,
     "declaration": false,

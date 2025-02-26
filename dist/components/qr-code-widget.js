@@ -1,4 +1,4 @@
-import { Q as QrCodeWidget$1, d as defineCustomElement$1 } from './p-2e5745a7.js';
+import { Q as QrCodeWidget$1, d as defineCustomElement$1 } from './p-173460cf.js';
 
 const QrCodeWidget = QrCodeWidget$1;
 const defineCustomElement = defineCustomElement$1;

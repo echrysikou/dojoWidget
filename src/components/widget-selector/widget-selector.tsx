@@ -1,9 +1,9 @@
 import { Component, h, Host, Prop, State, Watch } from '@stencil/core';
-import { fetchWidgetDetails } from '../../services/services';
-import { IWidgetDetails, SupportedLanguages } from '../../interfaces/interfaces';
-import { state } from '../../store/store';
-import { setLanguage } from '../../utils/i18n';
-import i18n from '../../utils/i18n';
+import { fetchWidgetDetails } from '@src/services/services';
+import { IWidgetDetails, SupportedLanguages } from '@src/interfaces/interfaces';
+import { state } from '@src/store/store';
+import { setLanguage } from '@src/utils/i18n';
+import i18n from '@src/utils/i18n';
 @Component({
   tag: 'tt-widget',
   styleUrl: './widget-selector.css',
