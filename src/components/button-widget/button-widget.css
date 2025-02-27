@@ -1,0 +1,64 @@
+
+:host {
+    --primary: #c02b28;
+    --secondary: #fcbd10;
+    --accent: #2b3a67;
+    --text: #181f1c;
+    --light: #fef7e2;
+    --error-color: #f44336;
+    --common-white: #ffffff;
+    --common-black: #000000;
+    --black-087: rgba(0, 0, 0, 0.87);
+}
+
+
+.donate-button {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-width: 3px;
+  border-style: solid;
+  font-size: 16px;
+  line-height: 16px;
+  height: 44px;
+  pointer-events: auto;
+  font-weight: 700;
+  padding-top: 1px;
+  padding-left: 16px;
+  padding-right: 16px;
+  width: fit-content;
+  border-radius: 50px;
+  transition: all 0.3s ease-out;
+  letter-spacing: 0.2px;
+  text-align: center;
+  text-shadow: none !important;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.taktak-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  width: 38px;
+  height: 38px;
+  margin-left: -20px;
+  margin-top: 0px;
+  border-width: 3px;
+  border-style: solid;
+  border-color: var(--primary) !important;
+  background: var(--light);
+  color: var(--primary);
+}
+
+.t-icon-image {
+  border-radius: 50px;
+  width: 38px;
+  height: 38px;
+}
+
+.button-text {
+  font-size: 16px;
+  padding-left: 8px;
+}

@@ -1,0 +1,63 @@
+:host {
+    --font-secondary: 'Raleway', sans-serif;
+    --text: #181f1c;
+    --common-white: #ffffff;
+    --lighter-gray: #e0e0e0;
+}
+
+.enter-amount-container {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 15px;
+}
+
+.form-control {
+    width: 100%;
+    margin-top: -5px;
+    background-color: var(--common-white, #ffffff);
+    border-radius: 5px;
+    box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    padding: 8px;
+    transition: all 0.3s ease-in-out;
+    box-sizing: border-box;
+}
+
+.input-adornment {
+    margin-right: 8px;
+    font-size: 16px;
+    color: var(--text, #181f1c);
+    line-height: normal;
+    box-sizing: border-box;
+}
+
+input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-family: var(--font-secondary, 'Raleway', sans-serif);
+    font-weight: 400;
+    color: var(--text, #181f1c);
+    background: transparent;
+    line-height: normal;
+    box-sizing: border-box;
+}
+
+input:focus {
+    border: none;
+    outline: none;
+}
+
+.low-amount-error {
+    margin-left: 0px;
+    margin-top: 6px;
+    font-weight: 500;
+}

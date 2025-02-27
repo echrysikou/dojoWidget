@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #181f1c;
+
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+:root {
+  --font-primary: 'Baloo Bhaijaan 2', sans-serif;
+  --font-secondary: 'Raleway', sans-serif;
+
+  --primary: #c02b28;
+  --secondary: #fcbd10;
+  --accent: #2b3a67;
+  --text: #181f1c;
+  --text-disabled: rgba(0, 0, 0, 0.38);
+  --light: #fef7e2;
+  --lighter: #fffbf0;
+  --dark-gray: #494949;
+  --gray: #787b7a;
+  --light-gray: #c2c2c2;
+  --lighter-gray: #e0e0e0;
+  --light-gradient: linear-gradient(180deg,
+      #fff1cb 0%,
+      #fef7e2 29.58%,
+      #fcfcf9 83.39%);
+  --secondary-darker: #d79d00;
+  --primary-darker: #892823;
+  --beige-darker: #fff1cb;
+  --gradient-dark-red: linear-gradient(180deg,
+      #a4201f 0%,
+      #ef3b3a 100%);
+  --bg-color: #fcfcf9;
+  --secondary-bg-color: rgba(252, 189, 16, 0.35);
+  --error-color: #f44336;
+  --common-white: #ffffff;
+  --common-black: #000000;
+  --black-087: rgba(0, 0, 0, 0.87);
+  --black-1: #212121;
+
+  --green: #1bb534;
+}
+
+button {
+  height: 44px;
+  border-radius: 50px;
+  padding: 0px 16px;
+  padding-top: 1px;
+  transition: "background-color 0.3s ease-out, color 0.3s ease-out";
+  font-family: var(--font-primary);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 36px;
+  letter-spacing: 0.2px;
+  text-align: center;
+  text-shadow: none !important;
+  white-space: nowrap;
+}
+
+button:disabled {
+  opacity: 0.8;
+  pointer-events: "auto";
+  cursor: "not-allowed";
+
+}
+
+button:hover {
+  filter: contrast(115%);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.hidden {
+  display: none;
+}
